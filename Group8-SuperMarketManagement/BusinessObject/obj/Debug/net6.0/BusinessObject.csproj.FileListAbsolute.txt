@@ -27,3 +27,17 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObj
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
