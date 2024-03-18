@@ -1,5 +1,6 @@
 {
   "version": 2,
+
   "dgSpecHash": "2n9Maad2b7P9q3Kd3tnE24CevK2QMq/HTs2hT6hYkltWFGLM1wmdeCgJs76fYbvHTBJIMd5B3kJAcFG00oUbAQ==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
@@ -59,6 +60,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+
   ],
   "logs": []
 }

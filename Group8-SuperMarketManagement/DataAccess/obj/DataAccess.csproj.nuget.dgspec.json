@@ -15,6 +15,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -92,6 +93,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -105,6 +107,7 @@
             "projectReferences": {
               "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
                 "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+
               }
             }
           }
@@ -145,6 +148,7 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+
         }
       }
     }

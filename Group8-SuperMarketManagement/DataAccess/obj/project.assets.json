@@ -2531,11 +2531,14 @@
     ]
   },
   "packageFolders": {
+
     "C:\\Users\\admin\\.nuget\\packages\\": {}
+
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+
       "projectUniqueName": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
       "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
@@ -2544,6 +2547,7 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2557,6 +2561,7 @@
           "projectReferences": {
             "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
               "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+
             }
           }
         }
@@ -2597,6 +2602,7 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+
       }
     }
   }
