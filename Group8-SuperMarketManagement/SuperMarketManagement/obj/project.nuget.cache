@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VfUUYvx2k+3Vdm2Vlg6rQe8Uqo9SQ5TmJtWdmWPsi0MdCV0Oj9idcceLAnKyt2ZfW7DV5XpP6ZeYXrxUyck7Sw==",
+  "dgSpecHash": "ixGmLGBCQXsxnEqDhhEz8iMFt/QER/j6elZsDcjalsPA7AhlI4elO0hQTwWvwPrcL4mEiwf/hBr4QnLxG21FcA==",
   "success": true,
-  "projectFilePath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagement.csproj",
+  "projectFilePath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xuank\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\xuank\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

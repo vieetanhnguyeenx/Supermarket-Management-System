@@ -326,6 +326,55 @@ namespace BusinessObject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName", "Description", "Discontinued" },
+                values: new object[,]
+                {
+                    { 1, "Beverages", "", false },
+                    { 2, "Condiments", "", false },
+                    { 3, "Confections", "", false },
+                    { 4, "Dairy Products", "", false },
+                    { 5, "Grains/Cereals", "", false },
+                    { 6, "Meat/Poultry", "", false },
+                    { 7, "Produce", "", false },
+                    { 8, "Seafood", "", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Suppliers",
+                columns: new[] { "SupplierID", "Address", "CompanyName", "Discontinued", "Phone" },
+                values: new object[,]
+                {
+                    { 1, "123 Main St", "ABC Company", false, "1234567890" },
+                    { 2, "456 Elm St", "XYZ Corporation", false, "4567890123" },
+                    { 3, "789 Oak St", "LMN Enterprises", false, "7890123456" },
+                    { 4, "321 Maple St", "PQR Inc.", false, "3216540987" },
+                    { 5, "654 Pine St", "EFG Ltd.", false, "6549873210" },
+                    { 6, "987 Cedar St", "HIJ Co.", false, "9873216540" },
+                    { 7, "234 Birch St", "RST Industries", false, "2345678901" },
+                    { 8, "567 Walnut St", "UVW Group", false, "5678901234" },
+                    { 9, "890 Ash St", "MNO Limited", false, "8901234567" },
+                    { 10, "432 Spruce St", "QRS Enterprises", false, "4327651098" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductID", "CategoryID", "Description", "Discontinued", "Price", "ProductName", "SupplierID", "TotalQuantity" },
+                values: new object[,]
+                {
+                    { 1, 1, "Description of Product 1", false, 10.99m, "Product 1", 1, 100 },
+                    { 2, 2, "Description of Product 2", false, 20.50m, "Product 2", 2, 150 },
+                    { 3, 1, "Description of Product 3", false, 15.75m, "Product 3", 3, 200 },
+                    { 4, 3, "Description of Product 4", false, 25.00m, "Product 4", 4, 120 },
+                    { 5, 2, "Description of Product 5", false, 18.25m, "Product 5", 5, 180 },
+                    { 6, 3, "Description of Product 6", false, 30.75m, "Product 6", 6, 90 },
+                    { 7, 1, "Description of Product 7", false, 22.99m, "Product 7", 7, 250 },
+                    { 8, 2, "Description of Product 8", false, 12.50m, "Product 8", 8, 300 },
+                    { 9, 3, "Description of Product 9", false, 28.00m, "Product 9", 9, 150 },
+                    { 10, 1, "Description of Product 10", false, 17.99m, "Product 10", 10, 170 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

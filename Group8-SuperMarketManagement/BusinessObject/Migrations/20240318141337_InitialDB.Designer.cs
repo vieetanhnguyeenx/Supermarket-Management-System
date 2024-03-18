@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessObject.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20240318124148_InitialDB")]
+    [Migration("20240318141337_InitialDB")]
     partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,64 @@ namespace BusinessObject.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Beverages",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "Condiments",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Confections",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "Dairy Products",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 5,
+                            CategoryName = "Grains/Cereals",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 6,
+                            CategoryName = "Meat/Poultry",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 7,
+                            CategoryName = "Produce",
+                            Description = "",
+                            Discontinued = false
+                        },
+                        new
+                        {
+                            CategoryID = 8,
+                            CategoryName = "Seafood",
+                            Description = "",
+                            Discontinued = false
+                        });
                 });
 
             modelBuilder.Entity("BusinessObject.Customer", b =>
@@ -245,6 +303,118 @@ namespace BusinessObject.Migrations
                     b.HasIndex("SupplierID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductID = 1,
+                            CategoryID = 1,
+                            Description = "Description of Product 1",
+                            Discontinued = false,
+                            Price = 10.99m,
+                            ProductName = "Product 1",
+                            SupplierID = 1,
+                            TotalQuantity = 100
+                        },
+                        new
+                        {
+                            ProductID = 2,
+                            CategoryID = 2,
+                            Description = "Description of Product 2",
+                            Discontinued = false,
+                            Price = 20.50m,
+                            ProductName = "Product 2",
+                            SupplierID = 2,
+                            TotalQuantity = 150
+                        },
+                        new
+                        {
+                            ProductID = 3,
+                            CategoryID = 1,
+                            Description = "Description of Product 3",
+                            Discontinued = false,
+                            Price = 15.75m,
+                            ProductName = "Product 3",
+                            SupplierID = 3,
+                            TotalQuantity = 200
+                        },
+                        new
+                        {
+                            ProductID = 4,
+                            CategoryID = 3,
+                            Description = "Description of Product 4",
+                            Discontinued = false,
+                            Price = 25.00m,
+                            ProductName = "Product 4",
+                            SupplierID = 4,
+                            TotalQuantity = 120
+                        },
+                        new
+                        {
+                            ProductID = 5,
+                            CategoryID = 2,
+                            Description = "Description of Product 5",
+                            Discontinued = false,
+                            Price = 18.25m,
+                            ProductName = "Product 5",
+                            SupplierID = 5,
+                            TotalQuantity = 180
+                        },
+                        new
+                        {
+                            ProductID = 6,
+                            CategoryID = 3,
+                            Description = "Description of Product 6",
+                            Discontinued = false,
+                            Price = 30.75m,
+                            ProductName = "Product 6",
+                            SupplierID = 6,
+                            TotalQuantity = 90
+                        },
+                        new
+                        {
+                            ProductID = 7,
+                            CategoryID = 1,
+                            Description = "Description of Product 7",
+                            Discontinued = false,
+                            Price = 22.99m,
+                            ProductName = "Product 7",
+                            SupplierID = 7,
+                            TotalQuantity = 250
+                        },
+                        new
+                        {
+                            ProductID = 8,
+                            CategoryID = 2,
+                            Description = "Description of Product 8",
+                            Discontinued = false,
+                            Price = 12.50m,
+                            ProductName = "Product 8",
+                            SupplierID = 8,
+                            TotalQuantity = 300
+                        },
+                        new
+                        {
+                            ProductID = 9,
+                            CategoryID = 3,
+                            Description = "Description of Product 9",
+                            Discontinued = false,
+                            Price = 28.00m,
+                            ProductName = "Product 9",
+                            SupplierID = 9,
+                            TotalQuantity = 150
+                        },
+                        new
+                        {
+                            ProductID = 10,
+                            CategoryID = 1,
+                            Description = "Description of Product 10",
+                            Discontinued = false,
+                            Price = 17.99m,
+                            ProductName = "Product 10",
+                            SupplierID = 10,
+                            TotalQuantity = 170
+                        });
                 });
 
             modelBuilder.Entity("BusinessObject.SalesTransaction", b =>
@@ -316,6 +486,88 @@ namespace BusinessObject.Migrations
                     b.HasKey("SupplierID");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new
+                        {
+                            SupplierID = 1,
+                            Address = "123 Main St",
+                            CompanyName = "ABC Company",
+                            Discontinued = false,
+                            Phone = "1234567890"
+                        },
+                        new
+                        {
+                            SupplierID = 2,
+                            Address = "456 Elm St",
+                            CompanyName = "XYZ Corporation",
+                            Discontinued = false,
+                            Phone = "4567890123"
+                        },
+                        new
+                        {
+                            SupplierID = 3,
+                            Address = "789 Oak St",
+                            CompanyName = "LMN Enterprises",
+                            Discontinued = false,
+                            Phone = "7890123456"
+                        },
+                        new
+                        {
+                            SupplierID = 4,
+                            Address = "321 Maple St",
+                            CompanyName = "PQR Inc.",
+                            Discontinued = false,
+                            Phone = "3216540987"
+                        },
+                        new
+                        {
+                            SupplierID = 5,
+                            Address = "654 Pine St",
+                            CompanyName = "EFG Ltd.",
+                            Discontinued = false,
+                            Phone = "6549873210"
+                        },
+                        new
+                        {
+                            SupplierID = 6,
+                            Address = "987 Cedar St",
+                            CompanyName = "HIJ Co.",
+                            Discontinued = false,
+                            Phone = "9873216540"
+                        },
+                        new
+                        {
+                            SupplierID = 7,
+                            Address = "234 Birch St",
+                            CompanyName = "RST Industries",
+                            Discontinued = false,
+                            Phone = "2345678901"
+                        },
+                        new
+                        {
+                            SupplierID = 8,
+                            Address = "567 Walnut St",
+                            CompanyName = "UVW Group",
+                            Discontinued = false,
+                            Phone = "5678901234"
+                        },
+                        new
+                        {
+                            SupplierID = 9,
+                            Address = "890 Ash St",
+                            CompanyName = "MNO Limited",
+                            Discontinued = false,
+                            Phone = "8901234567"
+                        },
+                        new
+                        {
+                            SupplierID = 10,
+                            Address = "432 Spruce St",
+                            CompanyName = "QRS Enterprises",
+                            Discontinued = false,
+                            Phone = "4327651098"
+                        });
                 });
 
             modelBuilder.Entity("BusinessObject.TransactionDetail", b =>

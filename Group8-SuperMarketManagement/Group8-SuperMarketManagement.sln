@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{074741D1-392F-4D00-BBB8-6343DC7816F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BE8E1ABB-A18E-4E8F-A89C-A0E2EADA00BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BE8E1ABB-A18E-4E8F-A89C-A0E2EADA00BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarketManagement", "SuperMarketManagement\SuperMarketManagement.csproj", "{D8EA9D35-2709-43FD-9992-496E98A602DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarketManagementAPI", "SuperMarketManagement\SuperMarketManagementAPI.csproj", "{D8EA9D35-2709-43FD-9992-496E98A602DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
