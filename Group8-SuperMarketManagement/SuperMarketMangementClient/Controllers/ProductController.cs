@@ -22,5 +22,13 @@ namespace SuperMarketMangementClient.Controllers
         {
             return View();
         }
+        public IActionResult Disabled()
+        {
+            return View();
+        }
+        public IActionResult Undisable()
+        {
+            return View();
+        }
     }
 }

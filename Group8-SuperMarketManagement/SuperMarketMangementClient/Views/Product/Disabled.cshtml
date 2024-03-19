@@ -1,13 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Product List";
+    ViewData["Title"] = "Disabled Product List";
 }
 
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center">
         <h2>List products</h2>
+
         <p>
-            <a href="Product/Create" class="btn btn-dark">Create New</a>
-            <a href="Product/Disabled" class="btn btn-dark">Undisable</a>
+            <a href="/Product" class="btn btn-dark">Back</a>
         </p>
     </div>
 
@@ -50,7 +50,7 @@
             function ShowAllProducts() {
                 $("table tbody").html("");
                 $.ajax({
-                    url: "https://localhost:5000/api/Product",
+                    url: "https://localhost:5000/api/Product/Disabled",
                     type: "GET",
                     contentType: "application/json",
                     success: function (result, status, xhr) {
@@ -64,8 +64,7 @@
                             appendElement.append($("<td>").html(value["supplier"]["companyName"]));
                             appendElement.append($("<td>").html(value["description"]));
                             appendElement.append($("<td>").html(
-                                "<a class='btn btn-warning' href='Product/Edit?id=" + value["productID"] + "'>Edit</a>" +
-                                "<a class='btn btn-danger ms-2' href='Product/Delete?id=" + value["productID"] + "'>Disable</a>"
+                                "<a class='btn btn-warning ms-2' href='/Product/Undisable?id=" + value["productID"] + "'>Undisable</a>"
                             ));
                         })
                     },
@@ -79,7 +78,7 @@
                 e.preventDefault();
                 const keyword = $("input[name='keyword']").val();
                 $.ajax({
-                    url: "https://localhost:5000/api/Product/Search/" + keyword,
+                    url: "https://localhost:5000/api/Product/Disable/Search/" + keyword,
                     type: "GET",
                     contentType: "application/json",
                     success: function (result, status, xhr) {
@@ -94,8 +93,7 @@
                             appendElement.append($("<td>").html(value["supplier"]["companyName"]));
                             appendElement.append($("<td>").html(value["description"]));
                             appendElement.append($("<td>").html(
-                                "<a class='btn btn-warning' href='Product/Edit?id=" + value["productID"] + "'>Edit</a>" +
-                                "<a class='btn btn-danger ms-2' href='Product/Delete?id=" + value["productID"] + "'>Delete</a>"
+                                "<a class='btn btn-warning ms-2' href='/Product/Undisable?id=" + value["productID"] + "'>Undisable</a>"
                             ));
                         })
                     },

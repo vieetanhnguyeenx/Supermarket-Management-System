@@ -28,6 +28,16 @@ namespace DataAccess.Repository.Iplm
             ProductDAO.DisableProduct(productID);
         }
 
+        public ProductDTOResponse GetDisabledProduct(int productID)
+        {
+            return mapper.Map<Product, ProductDTOResponse>(ProductDAO.GetDisabledProductByID(productID));
+        }
+
+        public List<ProductDTOResponse> GetDisabledProducts()
+        {
+            return mapper.Map<List<Product>, List<ProductDTOResponse>>(ProductDAO.GetDisabledProducts());
+        }
+
         public ProductDTOResponse GetProduct(int productID)
         {
             return mapper.Map<Product, ProductDTOResponse>(ProductDAO.GetProductByID(productID));
@@ -45,9 +55,19 @@ namespace DataAccess.Repository.Iplm
 
         }
 
+        public List<ProductDTOResponse> SearchDisableProducts(string keyword)
+        {
+            return mapper.Map<List<Product>, List<ProductDTOResponse>>(ProductDAO.SearchDisableProducts(keyword));
+        }
+
         public List<ProductDTOResponse> SearchProducts(string keyword)
         {
             return mapper.Map<List<Product>, List<ProductDTOResponse>>(ProductDAO.SearchProducts(keyword));
+        }
+
+        public void UndisableProduct(int productID)
+        {
+            ProductDAO.UndisableProduct(productID);
         }
 
         public void UpdateProduct(ProductDTOPUT productDTOPUT)

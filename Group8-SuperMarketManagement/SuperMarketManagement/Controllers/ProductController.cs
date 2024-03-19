@@ -17,8 +17,16 @@ namespace SuperMarketManagementAPI.Controllers
         [EnableQuery]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetProducts() => repository.GetProducts();
 
+        [HttpGet("Disabled")]
+        [EnableQuery]
+        public ActionResult<IEnumerable<ProductDTOResponse>> GetDisabledProducts() => repository.GetDisabledProducts();
+        [HttpGet("Disabled/{id}")]
+        public ActionResult<ProductDTOResponse> GetDisanbledProductById(int id) => repository.GetDisabledProduct(id);
+
         [HttpGet("Search/{keyword}")]
         public ActionResult<IEnumerable<ProductDTOResponse>> Search(string keyword) => repository.SearchProducts(keyword);
+        [HttpGet("Disable/Search/{keyword}")]
+        public ActionResult<IEnumerable<ProductDTOResponse>> SearchDisable(string keyword) => repository.SearchDisableProducts(keyword);
 
         [HttpGet("{id}")]
         public ActionResult<ProductDTOResponse> GetProductById(int id) => repository.GetProduct(id);
@@ -43,6 +51,18 @@ namespace SuperMarketManagementAPI.Controllers
                 return NotFound();
             }
             repository.DisableProduct(id);
+            return NoContent();
+        }
+
+        [HttpPut("Undisable/{id}")]
+        public IActionResult UndisableProduct(int id)
+        {
+            var product = repository.GetDisabledProduct(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            repository.UndisableProduct(id);
             return NoContent();
         }
 
