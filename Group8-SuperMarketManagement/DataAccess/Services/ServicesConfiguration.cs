@@ -1,6 +1,5 @@
-﻿using BusinessObject;
+﻿/*
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -13,14 +12,15 @@ namespace DataAccess.Services
 
         public static void AddCustomServices(this IServiceCollection services)
         {
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
-
+            /*
             services.AddIdentity<Employee, IdentityRole>()
                     .AddEntityFrameworkStores<MyDBContext>().AddDefaultTokenProviders();
-
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -40,7 +40,9 @@ namespace DataAccess.Services
 
                 };
             });
+
         }
 
     }
 }
+*/

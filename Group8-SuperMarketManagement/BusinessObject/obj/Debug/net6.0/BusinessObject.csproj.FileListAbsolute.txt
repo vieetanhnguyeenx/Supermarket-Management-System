@@ -42,3 +42,4 @@ D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\.gitignore
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\BusinessObject\bin\Debug\net6.0\.gitignore

@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessObject
 {
     public class MyDBContext : IdentityDbContext<Employee>
     {
-        public MyDBContext() { }
+        public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
+        {
+        }
+
+        public MyDBContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
@@ -47,30 +48,30 @@ namespace BusinessObject
                new Category { CategoryID = 8, CategoryName = "Seafood", Description = "", Discontinued = false }
                );
             modelBuilder.Entity<Supplier>().HasData(
-                new Supplier {SupplierID =1, CompanyName = "ABC Company", Address = "123 Main St", Phone = "1234567890", Discontinued = false },
-                new Supplier { SupplierID=2,CompanyName = "XYZ Corporation", Address = "456 Elm St", Phone = "4567890123", Discontinued = false },
-                new Supplier { SupplierID=3, CompanyName = "LMN Enterprises", Address = "789 Oak St", Phone = "7890123456", Discontinued = false },
-                new Supplier { SupplierID =4, CompanyName = "PQR Inc.", Address = "321 Maple St", Phone = "3216540987", Discontinued = false },
-                new Supplier { SupplierID =5, CompanyName = "EFG Ltd.", Address = "654 Pine St", Phone = "6549873210", Discontinued = false },
-                new Supplier { SupplierID = 6,CompanyName = "HIJ Co.", Address = "987 Cedar St", Phone = "9873216540", Discontinued = false },
-                new Supplier { SupplierID = 7,CompanyName = "RST Industries", Address = "234 Birch St", Phone = "2345678901", Discontinued = false },
-                new Supplier { SupplierID = 8,CompanyName = "UVW Group", Address = "567 Walnut St", Phone = "5678901234", Discontinued = false },
-                new Supplier { SupplierID = 9,CompanyName = "MNO Limited", Address = "890 Ash St", Phone = "8901234567", Discontinued = false },
-                new Supplier { SupplierID = 10,CompanyName = "QRS Enterprises", Address = "432 Spruce St", Phone = "4327651098", Discontinued = false }
+                new Supplier { SupplierID = 1, CompanyName = "ABC Company", Address = "123 Main St", Phone = "1234567890", Discontinued = false },
+                new Supplier { SupplierID = 2, CompanyName = "XYZ Corporation", Address = "456 Elm St", Phone = "4567890123", Discontinued = false },
+                new Supplier { SupplierID = 3, CompanyName = "LMN Enterprises", Address = "789 Oak St", Phone = "7890123456", Discontinued = false },
+                new Supplier { SupplierID = 4, CompanyName = "PQR Inc.", Address = "321 Maple St", Phone = "3216540987", Discontinued = false },
+                new Supplier { SupplierID = 5, CompanyName = "EFG Ltd.", Address = "654 Pine St", Phone = "6549873210", Discontinued = false },
+                new Supplier { SupplierID = 6, CompanyName = "HIJ Co.", Address = "987 Cedar St", Phone = "9873216540", Discontinued = false },
+                new Supplier { SupplierID = 7, CompanyName = "RST Industries", Address = "234 Birch St", Phone = "2345678901", Discontinued = false },
+                new Supplier { SupplierID = 8, CompanyName = "UVW Group", Address = "567 Walnut St", Phone = "5678901234", Discontinued = false },
+                new Supplier { SupplierID = 9, CompanyName = "MNO Limited", Address = "890 Ash St", Phone = "8901234567", Discontinued = false },
+                new Supplier { SupplierID = 10, CompanyName = "QRS Enterprises", Address = "432 Spruce St", Phone = "4327651098", Discontinued = false }
                 );
             modelBuilder.Entity<Product>().HasData(
-                new Product {ProductID =1, ProductName = "Product 1", SupplierID = 1, CategoryID = 1, Description = "Description of Product 1", Discontinued = false, TotalQuantity = 100, Price = 10.99m },
+                new Product { ProductID = 1, ProductName = "Product 1", SupplierID = 1, CategoryID = 1, Description = "Description of Product 1", Discontinued = false, TotalQuantity = 100, Price = 10.99m },
                 new Product { ProductID = 2, ProductName = "Product 2", SupplierID = 2, CategoryID = 2, Description = "Description of Product 2", Discontinued = false, TotalQuantity = 150, Price = 20.50m },
-                new Product {ProductID = 3, ProductName = "Product 3", SupplierID = 3, CategoryID = 1, Description = "Description of Product 3", Discontinued = false, TotalQuantity = 200, Price = 15.75m },
-                new Product {ProductID = 4, ProductName = "Product 4", SupplierID = 4, CategoryID = 3, Description = "Description of Product 4", Discontinued = false, TotalQuantity = 120, Price = 25.00m },
-                new Product {ProductID = 5, ProductName = "Product 5", SupplierID = 5, CategoryID = 2, Description = "Description of Product 5", Discontinued = false, TotalQuantity = 180, Price = 18.25m },
-                new Product {ProductID = 6, ProductName = "Product 6", SupplierID = 6, CategoryID = 3, Description = "Description of Product 6", Discontinued = false, TotalQuantity = 90, Price = 30.75m },
-                new Product {ProductID = 7, ProductName = "Product 7", SupplierID = 7, CategoryID = 1, Description = "Description of Product 7", Discontinued = false, TotalQuantity = 250, Price = 22.99m },
-                new Product {ProductID = 8 , ProductName = "Product 8", SupplierID = 8, CategoryID = 2, Description = "Description of Product 8", Discontinued = false, TotalQuantity = 300, Price = 12.50m },
-                new Product {ProductID = 9, ProductName = "Product 9", SupplierID = 9, CategoryID = 3, Description = "Description of Product 9", Discontinued = false, TotalQuantity = 150, Price = 28.00m },
-                new Product {ProductID = 10, ProductName = "Product 10", SupplierID = 10, CategoryID = 1, Description = "Description of Product 10", Discontinued = false, TotalQuantity = 170, Price = 17.99m }
+                new Product { ProductID = 3, ProductName = "Product 3", SupplierID = 3, CategoryID = 1, Description = "Description of Product 3", Discontinued = false, TotalQuantity = 200, Price = 15.75m },
+                new Product { ProductID = 4, ProductName = "Product 4", SupplierID = 4, CategoryID = 3, Description = "Description of Product 4", Discontinued = false, TotalQuantity = 120, Price = 25.00m },
+                new Product { ProductID = 5, ProductName = "Product 5", SupplierID = 5, CategoryID = 2, Description = "Description of Product 5", Discontinued = false, TotalQuantity = 180, Price = 18.25m },
+                new Product { ProductID = 6, ProductName = "Product 6", SupplierID = 6, CategoryID = 3, Description = "Description of Product 6", Discontinued = false, TotalQuantity = 90, Price = 30.75m },
+                new Product { ProductID = 7, ProductName = "Product 7", SupplierID = 7, CategoryID = 1, Description = "Description of Product 7", Discontinued = false, TotalQuantity = 250, Price = 22.99m },
+                new Product { ProductID = 8, ProductName = "Product 8", SupplierID = 8, CategoryID = 2, Description = "Description of Product 8", Discontinued = false, TotalQuantity = 300, Price = 12.50m },
+                new Product { ProductID = 9, ProductName = "Product 9", SupplierID = 9, CategoryID = 3, Description = "Description of Product 9", Discontinued = false, TotalQuantity = 150, Price = 28.00m },
+                new Product { ProductID = 10, ProductName = "Product 10", SupplierID = 10, CategoryID = 1, Description = "Description of Product 10", Discontinued = false, TotalQuantity = 170, Price = 17.99m }
                 );
-    
+
         }
     }
 }

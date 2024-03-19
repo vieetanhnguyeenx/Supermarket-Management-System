@@ -20,16 +20,19 @@ namespace DataAccess.DAO
             }
             return ListCategories;
         }
-        public static Category GetCategoryById(int id) { 
-            var Category = new Category(); 
+        public static Category GetCategoryById(int id)
+        {
+            var Category = new Category();
             try
             {
                 using (var context = new MyDBContext())
                 {
                     Category = context.Categories.FirstOrDefault(x => x.CategoryID == id);
                 }
-            }catch (Exception e) { 
-                throw new Exception(e.Message); 
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
             return Category;
         }
@@ -48,7 +51,8 @@ namespace DataAccess.DAO
                     context.Categories.Add(ca);
                     context.SaveChanges();
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
@@ -63,9 +67,10 @@ namespace DataAccess.DAO
                     cate.CategoryName = category.CategoryName;
                     cate.Description = category.Description;
                     context.Entry<Category>(cate).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    context.SaveChanges();  
+                    context.SaveChanges();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -74,16 +79,17 @@ namespace DataAccess.DAO
         {
             try
             {
-                using (var context= new MyDBContext())
+                using (var context = new MyDBContext())
                 {
                     var cate = context.Categories.FirstOrDefault(x => x.CategoryID == id);
                     cate.Discontinued = true;
                     context.Entry<Category>(cate).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     context.SaveChanges();
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                throw new Exception(ex.Message);    
+                throw new Exception(ex.Message);
             }
         }
     }

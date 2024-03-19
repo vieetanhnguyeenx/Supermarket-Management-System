@@ -184,3 +184,4 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarket
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.genruntimeconfig.cache
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\ref\SuperMarketManagementAPI.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\.gitignore
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\.gitignore

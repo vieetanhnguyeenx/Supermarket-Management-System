@@ -1,12 +1,5 @@
-
-using BusinessObject;
-using DataAccess.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OData;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.ModelBuilder;
-using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 var modelBuilder = new ODataConventionModelBuilder();
+
 builder.Services.AddControllers().AddOData(option => option.Select().Filter().Count().OrderBy().Expand().SetMaxTop(100)
     .AddRouteComponents("odata", modelBuilder.GetEdmModel()));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -26,10 +22,11 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
-
+/*
 builder.Services.AddIdentity<Employee, IdentityRole>()
     .AddEntityFrameworkStores<MyDBContext>().AddDefaultTokenProviders();
 
+/*
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -50,12 +47,13 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddCustomServices();
+//builder.Services.AddSingleton<IServiceCollection>();
+//builder.Services.AddCustomServices();
 builder.Services.AddScoped<UserManager<Employee>>();
 builder.Services.AddScoped<SignInManager<Employee>>();
 builder.Services.AddScoped<IConfiguration>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
-
+*/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

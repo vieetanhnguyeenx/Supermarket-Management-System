@@ -14,6 +14,9 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.28",
           "Microsoft.AspNetCore.OData": "8.2.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.28",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.Configuration.Json": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -802,7 +805,8 @@
           "BusinessObject": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28",
           "Microsoft.Extensions.Configuration": "6.0.1",
-          "Microsoft.Extensions.Configuration.Json": "6.0.0"
+          "Microsoft.Extensions.Configuration.Json": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1"
         },
         "runtime": {
           "DataAccess.dll": {}
