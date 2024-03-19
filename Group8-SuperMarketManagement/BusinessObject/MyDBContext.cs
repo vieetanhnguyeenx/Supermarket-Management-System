@@ -6,7 +6,9 @@ namespace BusinessObject
 {
     public class MyDBContext : IdentityDbContext<Employee>
     {
-        
+        public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
+        {
+        }
         public MyDBContext()
         {
         }
