@@ -24,7 +24,8 @@ namespace BusinessObject
         public DateTime EntryDate { get; set; }
         [ForeignKey("Employee")]
         public string EmployeeID { get; set; } = null!;
-
+        [Required]
+        public bool Discontinued { get; set; }
         public virtual Product? Product { get; set; } = null!;
         public virtual Employee? Employee { get; set; } = null!;
     }
