@@ -1,6 +1,11 @@
+using BusinessObject;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.ModelBuilder;
-
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +27,16 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
-/*
+
+builder.Services.AddDbContext<MyDBContext>(options =>
+{
+    options.UseSqlServer("DefaultConnection");
+});
+
 builder.Services.AddIdentity<Employee, IdentityRole>()
     .AddEntityFrameworkStores<MyDBContext>().AddDefaultTokenProviders();
 
-/*
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -47,13 +57,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-//builder.Services.AddSingleton<IServiceCollection>();
-//builder.Services.AddCustomServices();
-builder.Services.AddScoped<UserManager<Employee>>();
-builder.Services.AddScoped<SignInManager<Employee>>();
-builder.Services.AddScoped<IConfiguration>();
-builder.Services.AddScoped<RoleManager<IdentityRole>>();
-*/
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

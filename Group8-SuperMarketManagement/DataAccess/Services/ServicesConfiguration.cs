@@ -1,5 +1,8 @@
-﻿/*
+﻿
+using BusinessObject;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -17,10 +20,16 @@ namespace DataAccess.Services
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
-            /*
+
+            services.AddDbContext<MyDBContext>(options =>
+            {
+                options.UseSqlServer("DefaultConnection");
+            });
+
+
             services.AddIdentity<Employee, IdentityRole>()
                     .AddEntityFrameworkStores<MyDBContext>().AddDefaultTokenProviders();
-            
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,4 +54,3 @@ namespace DataAccess.Services
 
     }
 }
-*/
