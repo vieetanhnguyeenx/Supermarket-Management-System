@@ -19,4 +19,24 @@ namespace DataAccess.DTOs
         [Required, StringLength(11)]
         public string Phone { get; set; } = null!;
     }
+    public class SupplierDTOCreate
+    {
+        [Required, StringLength(40)]
+        public string CompanyName { get; set; } = null!;
+        [Required, StringLength(100)]
+        public string Address { get; set; } = null!;
+        [Required, StringLength(11)]
+        public string Phone { get; set; } = null!;
+
+    }
+    public class SupplierDTOPUT
+    {
+        public int SupplierID { get; set; }
+        [Required, StringLength(40)]
+        public string CompanyName { get; set; } = null!;
+        [Required, StringLength(100)]
+        public string Address { get; set; } = null!;
+        [Required, StringLength(11)]
+        public string Phone { get; set; } = null!;
+    }
 }

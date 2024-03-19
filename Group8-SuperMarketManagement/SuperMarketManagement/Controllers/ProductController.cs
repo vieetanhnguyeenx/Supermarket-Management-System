@@ -3,6 +3,7 @@ using DataAccess.Repository;
 using Microsoft.AspNetCore.Mvc;
 using BusinessObject;
 using DataAccess.DTOs;
+using Microsoft.AspNetCore.OData.Query;
 
 namespace SuperMarketManagementAPI.Controllers
 {
@@ -11,7 +12,9 @@ namespace SuperMarketManagementAPI.Controllers
     public class ProductController : Controller
     {
         private IProductRepository repository = new ProductRepository();
+        
         [HttpGet]
+        [EnableQuery]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetProducts() => repository.GetProducts();
 
         [HttpGet("Search/{keyword}")]

@@ -2518,19 +2518,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\xuank\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
+      "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+      "packagesPath": "C:\\Users\\xuank\\.nuget\\packages\\",
+      "outputPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\xuank\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2595,7 +2595,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
