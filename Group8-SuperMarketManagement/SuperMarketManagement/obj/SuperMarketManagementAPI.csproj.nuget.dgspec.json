@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj": {}
+    "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj": {}
   },
   "projects": {
-    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
+        "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,34 +83,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
+    "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\obj\\",
+        "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+              "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -164,37 +168,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj": {
+    "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
+        "projectUniqueName": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
         "projectName": "SuperMarketManagementAPI",
-        "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\obj\\",
+        "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+              "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
               },
-              "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj"
+              "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -263,7 +269,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
