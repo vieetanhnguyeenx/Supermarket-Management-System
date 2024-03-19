@@ -48,3 +48,5 @@ D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
