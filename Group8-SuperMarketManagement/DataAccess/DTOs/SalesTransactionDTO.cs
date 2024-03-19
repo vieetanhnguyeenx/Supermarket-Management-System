@@ -15,14 +15,14 @@ namespace DataAccess.DTOs
         [Required]
         public DateTime? TransactionDate { get; set; }
         [Required]
-        [Range(1, Int32.MaxValue)]
-        public int CashReceived { get; set; }
+        [Range(1, double.MaxValue)]
+        public decimal CashReceived { get; set; }
         [Required]
-        [Range(1, Int32.MaxValue)]
-        public int Change { get; set; }
+        [Range(1, double.MaxValue)]
+        public decimal Change { get; set; }
         [Required]
-        [Range(1, Int32.MaxValue)]
-        public int TotalPrice { get; set; }
+        [Range(1, double.MaxValue)]
+        public decimal TotalPrice { get; set; }
         [ForeignKey("Employee")]
         public string EmployeeID { get; set; }
         public int? CustomerID { get; set; } = null!;
@@ -37,13 +37,13 @@ namespace DataAccess.DTOs
         public DateTime? TransactionDate { get; set; }
         [Required]
         [Range(1, Int32.MaxValue)]
-        public int CashReceived { get; set; }
+        public decimal CashReceived { get; set; }
         [Required]
         [Range(1, Int32.MaxValue)]
-        public int Change { get; set; }
+        public decimal Change { get; set; }
         [Required]
         [Range(1, Int32.MaxValue)]
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         [Required]
         public bool Discontinued { get; set; }
         [ForeignKey("Employee")]
@@ -56,7 +56,7 @@ namespace DataAccess.DTOs
     {
         public int ProductID { get; set; }
         [Required]
-        public int UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]

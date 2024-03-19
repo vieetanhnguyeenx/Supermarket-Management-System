@@ -17,7 +17,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    listST = context.SalesTransactions.Where(x => x.Discontinued == false).ToList();
+                    listST = context.SalesTransactions.Include(x => x.Employee).Include(x => x.Customer).Where(x => x.Discontinued == false).ToList();
                 }
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    listST = context.SalesTransactions.Where(x => x.Discontinued == false && x.EmployeeID == employeeID).ToList();
+                    listST = context.SalesTransactions.Include(x => x.Employee).Include(x => x.Customer).Where(x => x.Discontinued == false && x.EmployeeID == employeeID).ToList();
                 }
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    st = context.SalesTransactions.Include(x => x.Employee).Include(x => x.TransactionDetails).SingleOrDefault(x => x.Discontinued == false && x.TransactionID == transactionID);
+                    st = context.SalesTransactions.Include(x => x.Employee).Include(x=>x.Customer).Include(x => x.TransactionDetails).ThenInclude(x=>x.Product).SingleOrDefault(x => x.Discontinued == false && x.TransactionID == transactionID);
                 }
             }
             catch (Exception ex)

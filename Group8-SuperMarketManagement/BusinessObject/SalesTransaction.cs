@@ -10,13 +10,13 @@ namespace BusinessObject
         [Required]
         public DateTime? TransactionDate { get; set; }
         [Required]
-        [Range(0, Int32.MaxValue)]
+        [Range(0, double.MaxValue)]
         public decimal CashReceived { get; set; }
         [Required]
-        [Range(0, Int32.MaxValue)]
+        [Range(0, double.MaxValue)]
         public decimal Change { get; set; }
         [Required]
-        [Range(0, Int32.MaxValue)]
+        [Range(0, double.MaxValue)]
         public decimal TotalPrice { get; set; }
         [Required]
         public bool Discontinued { get; set; }

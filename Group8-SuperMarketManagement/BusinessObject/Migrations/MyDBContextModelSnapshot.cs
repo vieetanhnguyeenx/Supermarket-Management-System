@@ -518,11 +518,11 @@ namespace BusinessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionID"), 1L, 1);
 
-                    b.Property<int>("CashReceived")
-                        .HasColumnType("int");
+                    b.Property<decimal>("CashReceived")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Change")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Change")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("CustomerID")
                         .HasColumnType("int");
@@ -534,8 +534,8 @@ namespace BusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("TransactionDate")
                         .IsRequired()
@@ -674,11 +674,11 @@ namespace BusinessObject.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UnitPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ProductID", "TransactionID");
 

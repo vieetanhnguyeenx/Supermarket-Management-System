@@ -15,7 +15,7 @@ namespace BusinessObject
         [ForeignKey("Product")]
         public int ProductID { get; set; }
         [Required]
-        public int UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
         [Required]
         public decimal Quantity { get; set; }
         [Required]

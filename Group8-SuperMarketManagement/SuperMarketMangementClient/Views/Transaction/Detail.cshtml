@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2>
+            Transaction Detail
+
+        </h2>
+        <a href="/Transaction" class="btn btn-dark">Back</a>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <h5 class="text-primary">Transaction information</h5>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    Transaction Id
+                </dt>
+                <dd id="TransactionID" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Date
+                </dt>
+                <dd id="TransactionDate" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Total Price
+                </dt>
+                <dd id="TotalPrice" class="col-sm-8"></dd>
+            </dl>
+            <hr />
+            <h5 class="text-success">Employee information</h5>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    Name
+                </dt>
+                <dd id="Name" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Phone
+                </dt>
+                <dd id="Phone" class="col-sm-8"></dd>
+            </dl>
+            <h5 class="text-warning">Customer information</h5>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    Name
+                </dt>
+                <dd id="CName" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Phone
+                </dt>
+                <dd id="CPhone" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Address
+                </dt>
+                <dd id="CAddress" class="col-sm-8"></dd>
+            </dl>
+        </div>
+        <div class="col-md-8">
+            <h5 class="text-danger">Items</h5>
+            <table class="table">
+                <thead>
+                    <tr class="bg-dark text-white">
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Unit Price
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Discount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5">No Data</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class='btn btn-danger ms-2' id="cancelOrderBtn">Disable</a>
+        </div>
+        <div id="ActionBlock" class="col-md-12">
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const params = (new URL(document.location)).searchParams;
+            const id = params.get("id");
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND',
+            });
+
+            GetOrder();
+
+            function GetOrder() {
+                $.ajax({
+                    url: `https://localhost:5000/api/SalesTransaction/${id}`,
+                    type: "GET",
+                    dataType: "json",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result) {
+                        $("#TransactionID").html(result.transactionID);
+                        $("#TransactionDate").html(result.transactionDate ? new Date(result.transactionDate).toLocaleString() : "N/a");
+                        $("#TotalPrice").html(formatter.format(result.totalPrice));
+                        $("#Name").html(result.employee.firstName + " " + result.employee.lastName);
+                        $("#Phone").html(result.employee.phone || "N/a");
+                        $("#CName").html(result.customer ? result.customer.firstName + " " + result.customer.lastName : "N/a");
+                        $("#CPhone").html(result.customer ? result.customer.phone : "N/a");
+                        $("#CAddress").html(result.customer ? result.customer.address : "N/a");
+                        $("table tbody").empty();
+                        $.each(result.transactionDetails, function (index, value) {
+                            $("table tbody").append($("<tr>"));
+                            const appendElement = $("tbody tr").last();
+                            appendElement.append($("<td>").html(value["product"]["productName"]));
+                            appendElement.append($("<td>").html(formatter.format(value["unitPrice"])));
+                            appendElement.append($("<td>").html(value["quantity"]));
+                            appendElement.append($("<td>").html(value["discount"]));
+                        })
+                    },
+                    // error: function (error) {
+                    //     console.log(error);
+                    //      Redirect to home
+                    //      window.location.href = "/Order";
+                    // }
+                })
+            }
+
+            $("#cancelOrderBtn").click(function () {
+                cancelledOrder(id); // Gọi hàm cancelledOrder với id của đơn hàng
+            });
+            // Handle cancelled order
+            window.cancelledOrder = function (id) {
+                $.ajax({
+                    url: "https://localhost:5000/api/SalesTransaction/Disable/" + id,
+                    type: "PUT",
+                    contentType: "application/json",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result, status, xhr) {
+                        alert("Disable successfully");
+                        window.location.href = "/Transaction";
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                })
+            }
+        })
+    </script>
+}

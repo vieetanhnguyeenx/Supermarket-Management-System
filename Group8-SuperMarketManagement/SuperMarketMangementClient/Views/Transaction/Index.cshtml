@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "List Transaction";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>List Transactions</h2>
+
+        <p>
+            <a href="/Transaction/Create" class="btn btn-dark">Create New Transaction</a>
+        </p>
+    </div>
+
+    <table class="table table-striped table-hover table-bordered m-2">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee Name</th>
+                <th>Transaction Date</th>
+                <th>Total Price</th>
+                <th>Customer Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7" class="text-center">No data</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND',
+            });
+
+            ShowAllOrders();
+
+            function ShowAllOrders() {
+                $.ajax({
+                    url: "https://localhost:5000/api/SalesTransaction",
+                    type: "GET",
+                    contentType: "application/json",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result, status, xhr) {
+                        $("table tbody").empty();
+                        $.each(result, function (index, value) {
+                            $("table tbody").append($("<tr>"));
+                            const appendElement = $("tbody tr").last();
+                            appendElement.append($("<td>").html(value["employee"]["lastName"]));
+                            appendElement.append($("<td>").html(value["transactionDate"] ? new Date(value["transactionDate"]).toLocaleString() : "N/a"));
+                            appendElement.append($("<td>").html(value["totalPrice"]));
+                            appendElement.append($("<td>").html(value["customer"] && value["customer"]["lastName"] ? value["customer"]["lastName"] : "N/a"));
+                            appendElement.append($("<td>").html(() => {
+                                let content = "<a class='btn btn-primary' href='/Transaction/Detail?id=" + value["transactionID"] + "'>Detail</a>"
+                                return content;
+                            }));
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                })
+            }
+        })
+    </script>
+}
