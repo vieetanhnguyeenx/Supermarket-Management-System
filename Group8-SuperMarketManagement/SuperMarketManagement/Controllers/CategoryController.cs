@@ -1,7 +1,6 @@
 ﻿using DataAccess.DTOs;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -19,6 +18,7 @@ namespace SuperMarketManagementAPI.Controllers
         public IActionResult PostCategory(CategoryDTOCreateRequest category)
         {
             repository.SaveCategory(category);
+            return Ok();
         }
     }
 }

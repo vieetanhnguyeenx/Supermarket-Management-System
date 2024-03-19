@@ -1,5 +1,6 @@
 
 using BusinessObject;
+using DataAccess.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OData;
@@ -48,6 +49,12 @@ builder.Services.AddAuthentication(options =>
 
     };
 });
+
+builder.Services.AddCustomServices();
+builder.Services.AddScoped<UserManager<Employee>>();
+builder.Services.AddScoped<SignInManager<Employee>>();
+builder.Services.AddScoped<IConfiguration>();
+builder.Services.AddScoped<RoleManager<IdentityRole>>();
 
 var app = builder.Build();
 

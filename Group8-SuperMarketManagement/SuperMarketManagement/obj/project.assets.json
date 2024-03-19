@@ -1415,7 +1415,9 @@
           "AutoMapper": "13.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "BusinessObject": "1.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28"
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.Configuration.Json": "6.0.0"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}
@@ -3955,13 +3957,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

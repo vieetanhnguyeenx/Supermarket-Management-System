@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5iPzKiZzk57Bxgh8RpqCHXtcIWt49DljzfLjyKzcMjy83HlSnuMoX1VvDJeS5Yo9pf27eSlcZy31/WPagWvHGw==",
+  "dgSpecHash": "/A74hbLLlsgf7Ly3cUVV2W3fB0AWcR1Eu1uBNMahlOqpht3w0xzNmc/xMZokUsB5wZj30NjBIoJd72fadK/Uvw==",
   "success": true,
   "projectFilePath": "D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\SuperMarketManagementAPI.csproj",
   "expectedPackageFiles": [
@@ -85,12 +85,5 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\FPTUniversity\\Semester_8\\PRN231\\Project\\26_NguyenVietAnh_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketManagement\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -44,3 +44,4 @@ E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
