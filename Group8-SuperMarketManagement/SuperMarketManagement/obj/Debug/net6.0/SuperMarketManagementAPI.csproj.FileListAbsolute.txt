@@ -166,7 +166,6 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarket
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.AssemblyInfoInputs.cache
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.AssemblyInfo.cs
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.csproj.CoreCompileInputs.cache
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.sourcelink.json
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\staticwebassets.build.json

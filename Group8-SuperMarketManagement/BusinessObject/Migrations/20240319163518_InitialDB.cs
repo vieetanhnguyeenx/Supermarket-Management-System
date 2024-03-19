@@ -280,7 +280,8 @@ namespace BusinessObject.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     PurchasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EntryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EmployeeID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    EmployeeID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Discontinued = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -339,6 +340,23 @@ namespace BusinessObject.Migrations
                     { 6, "Meat/Poultry", "", false },
                     { 7, "Produce", "", false },
                     { 8, "Seafood", "", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "CustomerID", "Address", "FirstName", "LastName", "Phone", "Point" },
+                values: new object[,]
+                {
+                    { 1, "123 Main St", "John", "Doe", "1234567890", 100 },
+                    { 2, "456 Elm St", "Jane", "Smith", "4567890123", 150 },
+                    { 3, "789 Oak St", "Michael", "Johnson", "7890123456", 200 },
+                    { 4, "321 Maple St", "Emily", "Williams", "3216540987", 120 },
+                    { 5, "654 Pine St", "Chris", "Brown", "6549873210", 180 },
+                    { 6, "987 Cedar St", "Jessica", "Jones", "9873216540", 90 },
+                    { 7, "234 Birch St", "David", "Davis", "2345678901", 250 },
+                    { 8, "567 Walnut St", "Sarah", "Miller", "5678901234", 300 },
+                    { 9, "890 Ash St", "Ryan", "Wilson", "8901234567", 150 },
+                    { 10, "432 Spruce St", "Laura", "Moore", "4327651098", 170 }
                 });
 
             migrationBuilder.InsertData(

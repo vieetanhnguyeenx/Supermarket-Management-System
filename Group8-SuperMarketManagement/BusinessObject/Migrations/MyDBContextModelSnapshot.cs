@@ -140,6 +140,98 @@ namespace BusinessObject.Migrations
                     b.HasKey("CustomerID");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerID = 1,
+                            Address = "123 Main St",
+                            FirstName = "John",
+                            LastName = "Doe",
+                            Phone = "1234567890",
+                            Point = 100
+                        },
+                        new
+                        {
+                            CustomerID = 2,
+                            Address = "456 Elm St",
+                            FirstName = "Jane",
+                            LastName = "Smith",
+                            Phone = "4567890123",
+                            Point = 150
+                        },
+                        new
+                        {
+                            CustomerID = 3,
+                            Address = "789 Oak St",
+                            FirstName = "Michael",
+                            LastName = "Johnson",
+                            Phone = "7890123456",
+                            Point = 200
+                        },
+                        new
+                        {
+                            CustomerID = 4,
+                            Address = "321 Maple St",
+                            FirstName = "Emily",
+                            LastName = "Williams",
+                            Phone = "3216540987",
+                            Point = 120
+                        },
+                        new
+                        {
+                            CustomerID = 5,
+                            Address = "654 Pine St",
+                            FirstName = "Chris",
+                            LastName = "Brown",
+                            Phone = "6549873210",
+                            Point = 180
+                        },
+                        new
+                        {
+                            CustomerID = 6,
+                            Address = "987 Cedar St",
+                            FirstName = "Jessica",
+                            LastName = "Jones",
+                            Phone = "9873216540",
+                            Point = 90
+                        },
+                        new
+                        {
+                            CustomerID = 7,
+                            Address = "234 Birch St",
+                            FirstName = "David",
+                            LastName = "Davis",
+                            Phone = "2345678901",
+                            Point = 250
+                        },
+                        new
+                        {
+                            CustomerID = 8,
+                            Address = "567 Walnut St",
+                            FirstName = "Sarah",
+                            LastName = "Miller",
+                            Phone = "5678901234",
+                            Point = 300
+                        },
+                        new
+                        {
+                            CustomerID = 9,
+                            Address = "890 Ash St",
+                            FirstName = "Ryan",
+                            LastName = "Wilson",
+                            Phone = "8901234567",
+                            Point = 150
+                        },
+                        new
+                        {
+                            CustomerID = 10,
+                            Address = "432 Spruce St",
+                            FirstName = "Laura",
+                            LastName = "Moore",
+                            Phone = "4327651098",
+                            Point = 170
+                        });
                 });
 
             modelBuilder.Entity("BusinessObject.Employee", b =>
@@ -235,6 +327,9 @@ namespace BusinessObject.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InventoryID"), 1L, 1);
+
+                    b.Property<bool>("Discontinued")
+                        .HasColumnType("bit");
 
                     b.Property<string>("EmployeeID")
                         .IsRequired()

@@ -30,7 +30,16 @@ namespace DataAccess.Mapper
             //Mapp Supplier
             CreateMap<Supplier, SupplierDTORespone>();
             CreateMap<SupplierDTOCreate, Supplier>();
-            CreateMap<SupplierDTOPUT, Supplier>();  
+            CreateMap<SupplierDTOPUT, Supplier>();
+
+            //Map Inventory
+            CreateMap<Inventory, InventoryDTORespone>();
+            CreateMap<InventoryDTOCreate, Inventory>();
+            CreateMap<InventoriesDTOPUT, Inventory>();
+            //Map Customer
+            CreateMap<Customer, CustomerDTORespone>();
+            CreateMap<CustomerDTOPUT, Customer>();
+            CreateMap<CustomerDTOCreate, Customer>();   
         }
     }
 }
