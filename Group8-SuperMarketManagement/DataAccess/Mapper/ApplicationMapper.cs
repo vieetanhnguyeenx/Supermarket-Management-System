@@ -8,7 +8,12 @@ namespace DataAccess.Mapper
     {
         public ApplicationMapper()
         {
+            //Map Category
             CreateMap<Category, CategoryDTOResponse>();
+            CreateMap<CategoryDTOCreateRequest, Category>();
+            CreateMap<CategoryDTOPUT,Category>();
+
+            //Map Product
             CreateMap<Product, ProductDTOResponse>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
             .ForMember(dest => dest.Supplier, opt => opt.MapFrom(src => src.Supplier));

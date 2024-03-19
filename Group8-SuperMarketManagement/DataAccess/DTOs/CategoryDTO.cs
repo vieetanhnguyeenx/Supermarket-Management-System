@@ -20,4 +20,12 @@ namespace DataAccess.DTOs
         [Required]
         public bool Discontinued { get; set; }
     }
+    public class CategoryDTOPUT
+    {
+        public int CategoryID { get; set; }
+        [Required, StringLength(40)]
+        public string CategoryName { get; set; } = null!;
+        [Required, StringLength(100)]
+        public string? Description { get; set; }
+    }
 }
