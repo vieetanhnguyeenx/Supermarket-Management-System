@@ -3,6 +3,10 @@ using DataAccess.Common;
 using DataAccess.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace DataAccess.Repository.Iplm
 {
@@ -24,9 +28,51 @@ namespace DataAccess.Repository.Iplm
             this.configuration = configuration;
             this.roleManager = roleManager;
         }
-        public Task<string> SignInAsyn(EmployeeSignInModel user)
+        public async Task<string> SignInAsyn(EmployeeSignInModel userModel)
         {
-            throw new NotImplementedException();
+            var user = await userManager.FindByEmailAsync(userModel.Email);
+            var passwordValid = await userManager.CheckPasswordAsync(user, userModel.Password);
+            if (user == null || !passwordValid)
+            {
+                return string.Empty;
+            }
+
+
+
+            var result = await signInManager.PasswordSignInAsync
+                (userModel.Email, userModel.Password, false, false);
+
+
+            if (!result.Succeeded)
+            {
+                return string.Empty;
+            }
+
+            var authClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, userModel.Email),
+                new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var userRoles = await userManager.GetRolesAsync(user);
+            foreach (var role in userRoles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+            }
+
+            var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecretKey"]));
+
+            var token = new JwtSecurityToken(
+                issuer: configuration["JWT:ValidIssuer"],
+                audience: configuration["JWT:ValidIssuer"],
+                expires: DateTime.Now.AddMinutes(20),
+                claims: authClaims,
+                signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(
+                    authenKey,
+                    SecurityAlgorithms.HmacSha512Signature)
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         public async Task<IdentityResult> SigUpAsyn(EmployeeSignUpModel user)
