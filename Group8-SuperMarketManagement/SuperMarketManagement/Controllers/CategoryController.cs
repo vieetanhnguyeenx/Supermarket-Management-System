@@ -17,8 +17,42 @@ namespace SuperMarketManagementAPI.Controllers
         [HttpPost]
         public IActionResult PostCategory(CategoryDTOCreateRequest category)
         {
-            repository.SaveCategory(category);
-            return Ok();
+            try
+            {
+                repository.SaveCategory(category);
+                return NoContent();
+            }catch (Exception ex) { 
+                return BadRequest(ex.Message);  
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult PutCategory( int id ,CategoryDTOPUT category)
+        {
+            var cate = repository.GetCategoryById(id);
+            if (cate == null) 
+                return NotFound(); 
+            try
+            {
+                repository.UpdateCategory(category);
+                return NoContent();
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }  
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCategory(int id) {
+            var cate = repository.GetCategoryById(id);
+            if (cate == null)
+                return NotFound();
+            try
+            {
+                repository.DeleteCategory(id);
+                return NoContent();
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
