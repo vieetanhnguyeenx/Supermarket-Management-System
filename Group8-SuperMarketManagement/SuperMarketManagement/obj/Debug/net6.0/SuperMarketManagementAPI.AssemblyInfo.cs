@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuperMarketManagementAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7d5931e48587acd2775a079fdef9386199b239b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4d1d0d6d4363433bc8ed6d74aca2d16cc89adec")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuperMarketManagementAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuperMarketManagementAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

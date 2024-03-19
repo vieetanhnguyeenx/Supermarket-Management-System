@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository.Iplm
 {
-    internal class SupplierRepository : ISupplierRepository
+    public class SupplierRepository : ISupplierRepository
     {
         private IMapper mapper;
 
