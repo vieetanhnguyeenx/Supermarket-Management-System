@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using DataAccess.Common;
 using DataAccess.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -28,9 +29,34 @@ namespace DataAccess.Repository.Iplm
             throw new NotImplementedException();
         }
 
-        public Task<IdentityResult> SigUpAsyn(EmployeeSignUpModel user)
+        public async Task<IdentityResult> SigUpAsyn(EmployeeSignUpModel user)
         {
-            throw new NotImplementedException();
+            var userSignUp = new Employee
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.Email,
+                Address = user.Address,
+                DoB = user.DoB,
+                Discontinued = false,
+                HireDate = user.HireDate,
+                Phone = user.Phone,
+                PhoneNumber = user.Phone,
+
+            };
+            var result = await userManager.CreateAsync(userSignUp, user.Password);
+
+            if (result.Succeeded)
+            {
+                if (!await roleManager.RoleExistsAsync(AppRole.Employee))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(AppRole.Employee));
+                }
+
+                await userManager.AddToRoleAsync(userSignUp, AppRole.Employee);
+            }
+            return result;
         }
     }
 }
