@@ -49,6 +49,17 @@ namespace DataAccess.DTOs
         [ForeignKey("Employee")]
         public string EmployeeID { get; set; }
         public int? CustomerID { get; set; } = null!;
-        public virtual ICollection<TransactionDetail>? TransactionDetails { get; set; }
+        public virtual ICollection<TransactionsDetailDTOPOST>? TransactionDetails { get; set; }
+    }
+
+    public class TransactionsDetailDTOPOST
+    {
+        public int ProductID { get; set; }
+        [Required]
+        public int UnitPrice { get; set; }
+        [Required]
+        public int Quantity { get; set; }
+        [Required]
+        public int Discount { get; set; }
     }
 }
