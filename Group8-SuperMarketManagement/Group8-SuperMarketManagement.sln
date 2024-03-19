@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarketManagementAPI", "SuperMarketManagement\SuperMarketManagementAPI.csproj", "{D8EA9D35-2709-43FD-9992-496E98A602DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarketMangementClient", "SuperMarketMangementClient\SuperMarketMangementClient.csproj", "{E4FAD32A-3904-4824-8717-37C4B7F28526}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D8EA9D35-2709-43FD-9992-496E98A602DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8EA9D35-2709-43FD-9992-496E98A602DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8EA9D35-2709-43FD-9992-496E98A602DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4FAD32A-3904-4824-8717-37C4B7F28526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4FAD32A-3904-4824-8717-37C4B7F28526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4FAD32A-3904-4824-8717-37C4B7F28526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4FAD32A-3904-4824-8717-37C4B7F28526}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

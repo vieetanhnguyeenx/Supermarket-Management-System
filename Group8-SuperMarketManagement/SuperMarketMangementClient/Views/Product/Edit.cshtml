@@ -1,0 +1,202 @@
+﻿@{
+    ViewData["Title"] = "Edit Product";
+    // string JWTToken = Context.Session.GetString("JWToken");
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2>
+            Edit Product
+        </h2>
+        <a href="/Product" class="btn btn-dark">Back</a>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group mt-2">
+                <label for="ProductName">Name</label>
+                <input type="text" class="form-control" id="ProductName" />
+                <span id="ProductName-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="UnitPrice">Unit price</label>
+                <input type="number" value="1" min="1" class="form-control" id="UnitPrice" />
+                <span id="UnitPrice-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="UnitsInStock">Units in stock</label>
+                <input type="number" value="1" min="1" class="form-control" id="UnitsInStock" />
+                <span id="UnitsInStock-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="Category">Category</label>
+                <select class="form-select" id="Category"></select>
+                <span id="Category-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="Supplier">Supplier</label>
+                <select class="form-select" id="Supplier"></select>
+                <span id="Supplier-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="Description" />
+                <span id="Description-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <button id="EditButton" class="btn btn-primary w-100">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const params = (new URL(document.location)).searchParams;
+            const id = params.get("id");
+
+            getAllCategory();
+            getAllSupplier();
+
+            function getAllCategory() {
+                $.ajax({
+                    url: "https://localhost:5000/api/Category",
+                    type: "GET",
+                    beforeSend: function (xhr) {
+
+                    },
+                    success: function (result, xhr) {
+                        $.each(result, function (key, item) {
+                            $("#Category").append("<option value='" + item["categoryID"] + "'>" + item["categoryName"] + "</option>");
+                        })
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                    }
+                })
+            }
+            function getAllSupplier() {
+                $.ajax({
+                    url: "https://localhost:5000/api/Supplier",
+                    type: "GET",
+                    beforeSend: function (xhr) {
+
+                    },
+                    success: function (result, xhr) {
+                        $.each(result, function (key, item) {
+                            $("#Supplier").append("<option value='" + item["supplierID"] + "'>" + item["companyName"] + "</option>");
+                        })
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                    }
+                })
+            }
+
+            GetProduct();
+
+            function GetProduct() {
+                $.ajax({
+                    url: `https://localhost:5000/api/Product/${id}`,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#ProductName").val(result.productName);
+                        $("#UnitPrice").val(result.price);
+                        $("#UnitsInStock").val(result.totalQuantity);
+                        $("#Category").val(result.category.categoryID);
+                        $("#Supplier").val(result.supplier.supplierID);
+                        $("#Description").val(result.description);
+                    },
+                    // error: function (error) {
+                    //     console.log(error);
+                    //     // Redirect to home
+                    //     window.location.href = "/Product";
+                    // }
+                })
+            }
+
+            function formValidation() {
+                var isValid = true;
+                if ($("#ProductName").val().trim() == "") {
+                    $("#ProductName-error").html("Name is required");
+                    isValid = false;
+                } else {
+                    $("#ProductName-error").html("");
+                }
+
+                if ($("#Description").val().trim() == "") {
+                    $("#Description-error").html("Description is required");
+                    isValid = false;
+                } else {
+                    $("#Weight-error").html("");
+                }
+
+                if ($("#UnitPrice").val() <= 0) {
+                    $("#UnitPrice-error").html("Unit price must be greater than 0");
+                    isValid = false;
+                } else {
+                    $("#UnitPrice-error").html("");
+                }
+
+                if ($("#UnitsInStock").val() <= 0) {
+                    $("#UnitsInStock-error").html("Units in stock must be greater than 0");
+                    isValid = false;
+                } else {
+                    $("#UnitsInStock-error").html("");
+                }
+
+                if ($("#Category").val() == "") {
+                    $("#Category-error").html("Category is required");
+                    isValid = false;
+                } else {
+                    $("#Category-error").html("");
+                }
+                if ($("#Supplier").val() == "") {
+                    $("#Supplier-error").html("Supplier is required");
+                    isValid = false;
+                } else {
+                    $("#Supplier-error").html("");
+                }
+
+                return isValid;
+            }
+
+            $("#EditButton").click(function () {
+                if (!formValidation()) {
+                    return;
+                }
+                $.ajax({
+                    url: `https://localhost:5000/api/Product/${id}`,
+                    type: "PUT",
+                    data: JSON.stringify({
+                        "productID": id,
+                        "productName": $("#ProductName").val(),
+                        "categoryID": $("#Category").val(),
+                        "supplierID": $("#Supplier").val(),
+                        "price": $("#UnitPrice").val(),
+                        "totalQuantity": $("#UnitsInStock").val(),
+                        "description": $("#Description").val(),
+                    }),
+                    contentType: "application/json",
+                    beforeSend: function (xhr) {
+
+                    },
+                    success: function (result, xhr) {
+                        alert("Edit successfully");
+                        // Redirect to home
+                        window.location.href = "/Product";
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                        if (xhr.status == 400) {
+                            $("#ProductName-error").html("Name already exists");
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+}

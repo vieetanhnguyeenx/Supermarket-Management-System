@@ -17,7 +17,7 @@ namespace BusinessObject
         [Required]
         public int UnitPrice { get; set; }
         [Required]
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
         [Required]
         public int Discount { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace DataAccess.DAO
     {
         public static List<Product> SearchProducts(string keyword)
         {
-            int price = 0;
+            decimal price = 0;
             try
             {
-                price = int.Parse(keyword);
+                price = decimal.Parse(keyword);
             }
             catch (Exception e)
             {
@@ -25,7 +26,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    var list = context.Products.Where(x => x.Discontinued == false).ToList();
+                    var list = context.Products.Include(x=>x.Supplier).Include(x=>x.Category).Where(x => x.Discontinued == false).ToList();
                     ListProducts = list.Where(x => x.ProductName.Contains(keyword) || x.Price == price).ToList();
                 }
             }
@@ -43,7 +44,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    ListProducts = context.Products.Where(x => x.Discontinued == false).ToList();
+                    ListProducts = context.Products.Include(x => x.Supplier).Include(x => x.Category).Where(x => x.Discontinued == false).ToList();
                 }
             }
             catch (Exception e)
@@ -60,7 +61,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    product = context.Products.SingleOrDefault(x => x.ProductID == productID && x.Discontinued == false);
+                    product = context.Products.Include(x => x.Supplier).Include(x => x.Category).SingleOrDefault(x => x.ProductID == productID && x.Discontinued == false);
                 }
             }
             catch (Exception e)
