@@ -50,8 +50,9 @@ namespace DataAccess.Repository.Iplm
 
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, userModel.Email),
-                new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+
+                new Claim(JwtRegisteredClaimNames.Email, userModel.Email),
+                new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, user.Id)
             };
 
             var userRoles = await userManager.GetRolesAsync(user);
