@@ -599,3 +599,11 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarket
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\obj\Debug\net6.0\SuperMar.3575E5F2.Up2Date
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\MailKit.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\MimeKit.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\System.Formats.Asn1.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll

@@ -1,0 +1,261 @@
+﻿@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Create Transaction";
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2>
+            Create new Transaction
+
+        </h2>
+        <a href="/Transaction" class="btn btn-dark">Back</a>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <h5>Add product:</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Product" class="control-label mb-1">Name</label>
+                            <select id="Product" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Quantity" class="control-label mb-1">Quantity</label>
+                            <input id="Quantity" value="1" min="1" type="number" class="form-control" />
+                            <span id="Quantity-error" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <input id="AddToOrderBtn" type="submit" value="Add to cart"
+                                   class="btn btn-warning d-block" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <h5>Order details: <span class="text-danger">*</span></h5>
+                <div id="OrderDetail-error" class="text-danger mb-3"></div>
+                <table class="table table-sm table-hover table-bordered">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Name</th>
+                            <th>Unit price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="OrderDetails">
+                        <tr>
+                            <td colspan='5'>No data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group mb-2">
+                <label for="CashReceived" class="control-label mb-1">Cash Received <span class="text-danger">*</span></label>
+                <input type ="number" id="CashReceived" class="form-control" />
+                <span id="CashReceived-error" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label for="Customer" class="control-label mb-1">Customer</label>
+                <select id="Customer" class="form-control"></select>
+            </div>
+            <div class="form-group mb-4">
+                <a href="/Customers/Create" class="btn btn-success">Add Customer</a>
+            </div>
+            <div class="form-group">
+                <button id="AddButton" class="btn btn-primary w-100">Create Transacton</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const listItems = [];
+
+            getAllProducts();
+            getAllCustomers();
+
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND',
+            });
+
+            function getAllProducts() {
+                $.ajax({
+                    url: "https://localhost:5000/api/Product",
+                    type: "GET",
+                    success: function (result, xhr) {
+                        const listProducts = result;
+                        $.each(listProducts, function (key, item) {
+                            $("#Product").append("<option value='" + item["productID"] + "'>" + item["productName"] + " - " + item["totalQuantity"] + "</option>");
+                        })
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                    }
+                })
+            }
+
+            function getAllCustomers() {
+                $.ajax({
+                    url: "https://localhost:5000/api/Customer",
+                    type: "GET",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result, xhr) {
+                        const listUsers = result;
+                        $.each(listUsers, function (key, item) {
+                            $("#Customer").append("<option value='" + item["customerID"] + "'>" + item["phone"] + "</option>");
+                        })
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                    }
+                })
+            }
+
+            // handle add to listItems
+            $("#AddToOrderBtn").click(function () {
+                const productID = $("#Product").val();
+                const quantity = $("#Quantity").val();
+
+                if (parseInt(quantity) < 1) {
+                    $("#Quantity-error").html("Quantity must be greater than 0");
+                    return;
+                }
+
+                $.ajax({
+                    url: "https://localhost:5000/api/Product/" + productID,
+                    type: "GET",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result, xhr) {
+                        const previousItem = listItems.find(x => x["productID"] == productID);
+                        if (previousItem) {
+                            if (parseInt(previousItem["quantity"]) + parseInt(quantity) > result["totalQuantity"]) {
+                                $("#Quantity-error").html("Quantity must be less than or equal to units in stock");
+                                return;
+                            }
+                            previousItem["quantity"] = parseInt(previousItem["quantity"]) + parseInt(quantity);
+                        }
+                        else {
+                            if (parseInt(quantity) > result["totalQuantity"]) {
+                                $("#Quantity-error").html("Quantity must be less than or equal to units in stock");
+                                return;
+                            }
+                            const item = {
+                                "productID": productID,
+                                "productName": result["productName"],
+                                "unitPrice": result["price"],
+                                "quantity": quantity
+                            }
+                            listItems.push(item);
+                        }
+                        renderListItems();
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                    }
+                })
+            })
+
+            function renderListItems() {
+                $("#OrderDetails").empty();
+                if (listItems.length == 0) {
+                    $("#OrderDetails").append("<tr><td colspan='5'>No data</td></tr>");
+                    return;
+                }
+                $.each(listItems, function (key, item) {
+                    $("#OrderDetails").append("<tr>" +
+                        "<td>" + item["productName"] + "</td>" +
+                        "<td>" + formatter.format(item["unitPrice"]) + "</td>" +
+                        "<td>" + item["quantity"] + "</td>" +
+                        "<td>" + formatter.format(item["unitPrice"] * item["quantity"]) + "</td>" +
+                        "<td><button class='btn btn-danger' onclick='deleteItem(" + item["productID"] + ")'>Delete</button></td>" +
+                        "</tr>");
+                })
+            }
+            
+            // handle delete item
+            window.deleteItem = function (productID) {
+                const index = listItems.findIndex(x => x["productID"] == productID);
+                listItems.splice(index, 1);
+                renderListItems();
+            }
+
+            const validationOrder = () => {
+                let isValid = true;
+                if (listItems.length == 0) {
+                    $("#OrderDetail-error").html("Please add at least one item to order");
+                    isValid = false;
+                }
+                else {
+                    $("#OrderDetail-error").html("");
+                }
+                return isValid;
+            }
+            // var userId = @Json.Serialize(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var userId = "abc123456";
+            $("#AddButton").click(function () {
+                if (!validationOrder()) {
+                    return;
+                }
+                let amount = 0;
+                const orderDetails = listItems.map(item => {
+                    amount += item["unitPrice"] * item["quantity"];
+                    return {
+                        "productID": item["productID"],
+                        "quantity": item["quantity"],
+                        "unitPrice": item["unitPrice"],
+                        "discount":0
+                    }
+                })
+                console.log(amount);
+                var cashReceived = parseFloat($("#CashReceived  ").val());
+                var totalPrice = parseFloat(amount);
+                var change = cashReceived - totalPrice;
+                $.ajax({
+                    url: "https://localhost:5000/api/SalesTransaction",
+                    type: "POST",
+                    data: JSON.stringify({
+                        transactionDate: new Date().toISOString(),
+                        cashReceived: $("#CashReceived").val(),
+                        change: change,
+                        totalPrice: amount,
+                        discontinued: false,
+                        employeeID: userId,
+                        customerID: $("#Customer").val(),
+                        transactionDetails: orderDetails
+                    }),
+                    contentType: "application/json",
+                    beforeSend: function (xhr) {
+                    },
+                    success: function (result, xhr) {
+                        alert("Create new transaction successfully");
+                        // Redirect to home
+                        window.location.href = "/Transaction/Create";
+                    },
+                    error: function (xhr, error) {
+                        console.log(xhr)
+                        alert("Create failed! Refresh page and try again.");
+                    }
+                })
+            })
+        })
+    </script>
+}

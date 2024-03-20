@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {}
+    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+    "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\xuank\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
+        "projectPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "E:\\GitHub\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\xuank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -88,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -25,6 +25,14 @@
                 </dt>
                 <dd id="TransactionDate" class="col-sm-8"></dd>
                 <dt class="col-sm-4">
+                    Cash Received
+                </dt>
+                <dd id="CashReceived" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Change
+                </dt>
+                <dd id="Change" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
                     Total Price
                 </dt>
                 <dd id="TotalPrice" class="col-sm-8"></dd>
@@ -55,6 +63,10 @@
                     Address
                 </dt>
                 <dd id="CAddress" class="col-sm-8"></dd>
+                <dt class="col-sm-4">
+                    Email
+                </dt>
+                <dd id="CEmail" class="col-sm-8"></dd>
             </dl>
         </div>
         <div class="col-md-8">
@@ -111,12 +123,15 @@
                     success: function (result) {
                         $("#TransactionID").html(result.transactionID);
                         $("#TransactionDate").html(result.transactionDate ? new Date(result.transactionDate).toLocaleString() : "N/a");
+                        $("#CashReceived").html(formatter.format(result.cashReceived));
+                        $("#Change").html(formatter.format(result.change));
                         $("#TotalPrice").html(formatter.format(result.totalPrice));
                         $("#Name").html(result.employee.firstName + " " + result.employee.lastName);
                         $("#Phone").html(result.employee.phone || "N/a");
                         $("#CName").html(result.customer ? result.customer.firstName + " " + result.customer.lastName : "N/a");
                         $("#CPhone").html(result.customer ? result.customer.phone : "N/a");
                         $("#CAddress").html(result.customer ? result.customer.address : "N/a");
+                        $("#CEmail").html(result.customer ? result.customer.email : "N/a");
                         $("table tbody").empty();
                         $.each(result.transactionDetails, function (index, value) {
                             $("table tbody").append($("<tr>"));

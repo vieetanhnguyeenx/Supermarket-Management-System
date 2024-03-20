@@ -51,10 +51,10 @@
                         $.each(result, function (index, value) {
                             $("table tbody").append($("<tr>"));
                             const appendElement = $("tbody tr").last();
-                            appendElement.append($("<td>").html(value["employee"]["lastName"]));
+                            appendElement.append($("<td>").html(value["employee"]["firstName"] + " " + value["employee"]["lastName"]));
                             appendElement.append($("<td>").html(value["transactionDate"] ? new Date(value["transactionDate"]).toLocaleString() : "N/a"));
                             appendElement.append($("<td>").html(value["totalPrice"]));
-                            appendElement.append($("<td>").html(value["customer"] && value["customer"]["lastName"] ? value["customer"]["lastName"] : "N/a"));
+                            appendElement.append($("<td>").html(value["customer"] ? value["customer"]["firstName"] + " " + value["customer"]["lastName"] : "N/a"));
                             appendElement.append($("<td>").html(() => {
                                 let content = "<a class='btn btn-primary' href='/Transaction/Detail?id=" + value["transactionID"] + "'>Detail</a>"
                                 return content;
