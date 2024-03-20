@@ -18,6 +18,7 @@ namespace DataAccess.DTOs
         public string Address { get; set; } = null!;
         [Required, StringLength(11)]
         public string Phone { get; set; } = null!;
+        public bool Discontinued { get; set; }
     }
     public class SupplierDTOCreate
     {
