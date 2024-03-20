@@ -1,5 +1,6 @@
 ﻿using BusinessObject;
 using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new MyDBContext())
                 {
-                    list = context.Inventories.ToList();
+                    list = context.Inventories.Include(x => x.Employee).Include(x => x.Product).ToList();
 
                 }
             }

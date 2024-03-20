@@ -1,18 +1,3 @@
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.dll
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.pdb
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\BusinessObject.dll
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\BusinessObject.pdb
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.dll
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.dll
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\DataAccess.pdb
@@ -29,7 +14,4 @@ D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.Up2Date
