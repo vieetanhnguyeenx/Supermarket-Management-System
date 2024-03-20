@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataAccess.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BusinessObject;
 using System.Net.Http.Headers;
-using DataAccess.DTOs;
-using System.Collections;
 using System.Text.Json;
 
 namespace SuperMarketMangementClient.Controllers
@@ -46,7 +38,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("lastName,firstName,address,phone,point,email")] CustomerDTOPUT customer)
+        public async Task<IActionResult> Edit(int id, [Bind("LastName,FirstName,Address,Phone,Point")] CustomerDTOPUT customer)
         {
             if (id == null)
             {
