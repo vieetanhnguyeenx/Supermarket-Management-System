@@ -21,7 +21,7 @@ namespace SuperMarketMangementClient.Controllers
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
-            
+
         }
         public IActionResult Index()
         {
@@ -34,18 +34,35 @@ namespace SuperMarketMangementClient.Controllers
 
         public async Task<ActionResult> Edit(int? id)
         {
-            var cust = new Customer();
+            var cust = new List<CustomerDTORespone>();
             HttpResponseMessage response = await client.GetAsync("https://localhost:5000/api/Customer?$filter=customerID eq " + id);
             string strData = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
-            cust = JsonSerializer.Deserialize<Customer>(strData, options);
-            return View(cust);    
+            cust = JsonSerializer.Deserialize<List<CustomerDTORespone>>(strData, options);
+            return View(cust[0]);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("lastName,firstName,address,phone,point,email")] CustomerDTOPUT customer)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            customer.CustomerID = id;
 
-        
-   
+
+            HttpResponseMessage response = await client.PutAsJsonAsync("https://localhost:5000/api/Customer/" + id, customer);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else return NotFound();
+
+
+        }
     }
 }
