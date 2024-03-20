@@ -19,6 +19,7 @@ namespace DataAccess.Mapper
             .ForMember(dest => dest.Supplier, opt => opt.MapFrom(src => src.Supplier));
             CreateMap<ProductDTOPUT, Product>();
             CreateMap<ProductDTOPOST, Product>();
+            CreateMap<ProductDTOResponse, Product>();
 
             //Map ST
             CreateMap<SalesTransaction, SalesTransactionDTOResponse>()

@@ -83,5 +83,18 @@ namespace SuperMarketManagementAPI.Controllers
             repository.UpdateProduct(postProduct);
             return NoContent();
         }
+
+        [HttpPut("{id}/{qty}")]
+        public IActionResult PutProduct(int id, int qty)
+        {
+            var productTmp = repository.GetProduct(id);
+            if (productTmp == null)
+            {
+                return NotFound();
+            }
+            productTmp.TotalQuantity -= qty;
+            repository.MinusProduct(productTmp);
+            return NoContent();
+        }
     }
 }

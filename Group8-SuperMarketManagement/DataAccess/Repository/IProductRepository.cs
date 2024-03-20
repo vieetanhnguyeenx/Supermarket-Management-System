@@ -1,4 +1,5 @@
-﻿using DataAccess.DTOs;
+﻿using BusinessObject;
+using DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace DataAccess.Repository
         ProductDTOResponse GetProduct(int productID);
         ProductDTOResponse GetDisabledProduct(int productID);
         void UpdateProduct(ProductDTOPUT productDTOPUT);
+        void MinusProduct(ProductDTOResponse product);
         void DisableProduct(int productID);
         void UndisableProduct(int productID);
         void SaveProduct (ProductDTOPOST productDTOPOST);

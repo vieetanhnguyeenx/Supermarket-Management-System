@@ -48,6 +48,11 @@ namespace DataAccess.Repository.Iplm
             return mapper.Map<List<Product>, List<ProductDTOResponse>>(ProductDAO.GetProducts());
         }
 
+        public void MinusProduct(ProductDTOResponse product)
+        {
+            ProductDAO.UpdateProduct(mapper.Map<Product>(product));
+        }
+
         public void SaveProduct(ProductDTOPOST productDTOPOST)
         {
             var product = mapper.Map<Product>(productDTOPOST);

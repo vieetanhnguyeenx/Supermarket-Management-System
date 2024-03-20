@@ -10,6 +10,7 @@ namespace SuperMarketManagementAPI.Controllers
     public class SalesTransactionController : ControllerBase
     {
         private ISalesTransactionRepository repository = new SalesTransactionRepository();
+        private IProductRepository productRepository = new ProductRepository();
         [HttpGet]
         public ActionResult<IEnumerable<SalesTransactionDTOResponse>> GetTransactions() => repository.GetAllTransactions();
 
@@ -23,6 +24,12 @@ namespace SuperMarketManagementAPI.Controllers
         public IActionResult PostProduct(SalesTransactionDTOPOST postTransaction)
         {
             repository.SaveTransaction(postTransaction);
+            foreach(var x in postTransaction.TransactionDetails)
+            {
+                var productTmp = productRepository.GetProduct(x.ProductID);
+                productTmp.TotalQuantity -= x.Quantity;
+                productRepository.MinusProduct(productTmp);
+            }
             return NoContent();
         }
 
