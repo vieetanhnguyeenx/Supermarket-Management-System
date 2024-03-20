@@ -58,6 +58,10 @@
                         <tr>
                             <td colspan='5'>No data</td>
                         </tr>
+                        <tr id="TotalRow">
+                            <td colspan="3"><strong>Total</strong></td>
+                            <td id="TotalAmount" colspan="2"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -176,19 +180,24 @@
 
             function renderListItems() {
                 $("#OrderDetails").empty();
+                let totalAmount = 0;
                 if (listItems.length == 0) {
                     $("#OrderDetails").append("<tr><td colspan='5'>No data</td></tr>");
                     return;
                 }
                 $.each(listItems, function (key, item) {
+                    const totalPrice = item["unitPrice"] * item["quantity"];
+                    totalAmount += totalPrice;
                     $("#OrderDetails").append("<tr>" +
                         "<td>" + item["productName"] + "</td>" +
                         "<td>" + formatter.format(item["unitPrice"]) + "</td>" +
                         "<td>" + item["quantity"] + "</td>" +
-                        "<td>" + formatter.format(item["unitPrice"] * item["quantity"]) + "</td>" +
+                        "<td>" + formatter.format(totalPrice) + "</td>" +
                         "<td><button class='btn btn-danger' onclick='deleteItem(" + item["productID"] + ")'>Delete</button></td>" +
                         "</tr>");
                 })
+                console.log(totalAmount);
+                $("#TotalAmount").text(totalAmount);
             }
             
             // handle delete item
