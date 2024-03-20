@@ -9,7 +9,6 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
@@ -50,3 +49,4 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\
 D:\FPTUniversity\Semester_8\PRN231\Project\26_NguyenVietAnh_Project\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\.gitignore
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\bin\Debug\net6.0\appsettings.json
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.Up2Date

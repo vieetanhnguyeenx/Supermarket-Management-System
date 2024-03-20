@@ -44,6 +44,7 @@ namespace DataAccess.DAO
             return listST;
         }
 
+   
         public static SalesTransaction GetTransactionByID(int transactionID)
         {
             var st = new SalesTransaction();

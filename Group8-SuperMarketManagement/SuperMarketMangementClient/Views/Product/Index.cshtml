@@ -78,6 +78,17 @@
             $("#form-search").submit(function (e) {
                 e.preventDefault();
                 const keyword = $("input[name='keyword']").val();
+                // Email.send({
+                //     Host: "smtp.elasticemail.com",
+                //     Username: "xuankhbm2@gmail.com",
+                //     Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
+                //     To: 'xuankhbm1@gmail.com',
+                //     From: "xuankhbm2@gmail.com",
+                //     Subject: "This is the subject",
+                //     Body: "And this is the body"
+                // }).then(
+                //     message => alert(message)
+                // );
                 $.ajax({
                     url: "https://localhost:5000/api/Product/Search/" + keyword,
                     type: "GET",
@@ -103,6 +114,7 @@
                         console.log(xhr);
                     }
                 })
+
             })
 
             $("#clear-search").click(function () {
@@ -111,4 +123,7 @@
             })
         })
     </script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    
 }

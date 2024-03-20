@@ -37,6 +37,7 @@ namespace DataAccess.Repository.Iplm
             return mapper.Map<List<SalesTransaction>, List<SalesTransactionDTOResponse>>(SalesTransactionDAO.GetSalesTransactionsByEmployeeID(employeeID));
         }
 
+      
         public SalesTransactionDTOResponse GetTransaction(int id)
         {
             return mapper.Map<SalesTransaction, SalesTransactionDTOResponse>(SalesTransactionDAO.GetTransactionByID(id));

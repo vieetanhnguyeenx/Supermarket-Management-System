@@ -176,7 +176,6 @@ D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarket
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SuperMarketManagementAPI.props
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\staticwebassets.pack.json
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\scopedcss\bundle\SuperMarketManagementAPI.styles.css
-D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.csproj.CopyComplete
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\refint\SuperMarketManagementAPI.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.pdb
@@ -278,3 +277,12 @@ E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarket
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.genruntimeconfig.cache
 E:\GitHub\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\ref\SuperMarketManagementAPI.dll
 D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMarketManagementAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\MailKit.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\MimeKit.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\System.Formats.Asn1.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+D:\PRN231\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketManagement\obj\Debug\net6.0\SuperMar.D03D557E.Up2Date
