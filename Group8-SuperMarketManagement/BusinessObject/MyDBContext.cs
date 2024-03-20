@@ -71,16 +71,16 @@ namespace BusinessObject
                 new Product { ProductID = 10, ProductName = "Product 10", SupplierID = 10, CategoryID = 1, Description = "Description of Product 10", Discontinued = false, TotalQuantity = 170, Price = 17.99m }
                 );
             modelBuilder.Entity<Customer>().HasData(
-                new Customer {CustomerID=1, LastName = "Doe", FirstName = "John", Address = "123 Main St", Phone = "1234567890", Point = 100 },
-                new Customer {CustomerID=2, LastName = "Smith", FirstName = "Jane", Address = "456 Elm St", Phone = "4567890123", Point = 150 },
-                new Customer {CustomerID =3, LastName = "Johnson", FirstName = "Michael", Address = "789 Oak St", Phone = "7890123456", Point = 200 },
-                new Customer {CustomerID =4,LastName = "Williams", FirstName = "Emily", Address = "321 Maple St", Phone = "3216540987", Point = 120 },
-                new Customer {CustomerID =5, LastName = "Brown", FirstName = "Chris", Address = "654 Pine St", Phone = "6549873210", Point = 180 },
-                new Customer { CustomerID =6, LastName = "Jones", FirstName = "Jessica", Address = "987 Cedar St", Phone = "9873216540", Point = 90 },
-                new Customer {CustomerID = 7, LastName = "Davis", FirstName = "David", Address = "234 Birch St", Phone = "2345678901", Point = 250 },
-                new Customer {CustomerID=8, LastName = "Miller", FirstName = "Sarah", Address = "567 Walnut St", Phone = "5678901234", Point = 300 },
-                new Customer {CustomerID=9, LastName = "Wilson", FirstName = "Ryan", Address = "890 Ash St", Phone = "8901234567", Point = 150 },
-                new Customer {CustomerID =10, LastName = "Moore", FirstName = "Laura", Address = "432 Spruce St", Phone = "4327651098", Point = 170 }
+                new Customer {CustomerID=1, LastName = "Doe", FirstName = "John", Address = "123 Main St", Phone = "1234567890", Point = 100,Email="" },
+                new Customer {CustomerID=2, LastName = "Smith", FirstName = "Jane", Address = "456 Elm St", Phone = "4567890123", Point = 150, Email = "" },
+                new Customer {CustomerID =3, LastName = "Johnson", FirstName = "Michael", Address = "789 Oak St", Phone = "7890123456", Point = 200, Email = "" },
+                new Customer {CustomerID =4,LastName = "Williams", FirstName = "Emily", Address = "321 Maple St", Phone = "3216540987", Point = 120, Email = "" },
+                new Customer {CustomerID =5, LastName = "Brown", FirstName = "Chris", Address = "654 Pine St", Phone = "6549873210", Point = 180, Email = "" },
+                new Customer { CustomerID =6, LastName = "Jones", FirstName = "Jessica", Address = "987 Cedar St", Phone = "9873216540", Point = 90, Email = "" },
+                new Customer {CustomerID = 7, LastName = "Davis", FirstName = "David", Address = "234 Birch St", Phone = "2345678901", Point = 250, Email = "" },
+                new Customer {CustomerID=8, LastName = "Miller", FirstName = "Sarah", Address = "567 Walnut St", Phone = "5678901234", Point = 300, Email = "" },
+                new Customer {CustomerID=9, LastName = "Wilson", FirstName = "Ryan", Address = "890 Ash St", Phone = "8901234567", Point = 150, Email = "" },
+                new Customer {CustomerID =10, LastName = "Moore", FirstName = "Laura", Address = "432 Spruce St", Phone = "4327651098", Point = 170, Email = "" }
                 );
 
         }

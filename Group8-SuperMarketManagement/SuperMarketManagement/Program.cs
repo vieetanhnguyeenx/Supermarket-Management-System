@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -17,11 +18,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-var modelBuilder = new ODataConventionModelBuilder();
+IEdmModel GetEdmModel()
+{
+    ODataConventionModelBuilder builder1 = new ODataConventionModelBuilder();
+    builder1.EntitySet<Customer>("Customers");
+    builder1.EntitySet<Product>("Products");
+    builder1.EntitySet<Inventory>("Inventories");
+    builder1.EntitySet<Category>("Categories");
+    builder1.EntitySet<Supplier>("Suppliers");
+    return builder1.GetEdmModel();
+}
 
-
-builder.Services.AddControllers().AddOData(option => option.Select().Filter().Count().OrderBy().Expand().SetMaxTop(100)
-    .AddRouteComponents("odata", modelBuilder.GetEdmModel()));
+builder.Services.AddControllers().AddOData(option => option.Select().Filter().Count().OrderBy().Expand().SetMaxTop(100).AddRouteComponents("odata", GetEdmModel())
+    );
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

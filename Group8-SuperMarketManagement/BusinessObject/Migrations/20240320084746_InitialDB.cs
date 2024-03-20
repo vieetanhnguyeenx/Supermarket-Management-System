@@ -80,7 +80,8 @@ namespace BusinessObject.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    Point = table.Column<int>(type: "int", nullable: false)
+                    Point = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -344,19 +345,19 @@ namespace BusinessObject.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "CustomerID", "Address", "FirstName", "LastName", "Phone", "Point" },
+                columns: new[] { "CustomerID", "Address", "Email", "FirstName", "LastName", "Phone", "Point" },
                 values: new object[,]
                 {
-                    { 1, "123 Main St", "John", "Doe", "1234567890", 100 },
-                    { 2, "456 Elm St", "Jane", "Smith", "4567890123", 150 },
-                    { 3, "789 Oak St", "Michael", "Johnson", "7890123456", 200 },
-                    { 4, "321 Maple St", "Emily", "Williams", "3216540987", 120 },
-                    { 5, "654 Pine St", "Chris", "Brown", "6549873210", 180 },
-                    { 6, "987 Cedar St", "Jessica", "Jones", "9873216540", 90 },
-                    { 7, "234 Birch St", "David", "Davis", "2345678901", 250 },
-                    { 8, "567 Walnut St", "Sarah", "Miller", "5678901234", 300 },
-                    { 9, "890 Ash St", "Ryan", "Wilson", "8901234567", 150 },
-                    { 10, "432 Spruce St", "Laura", "Moore", "4327651098", 170 }
+                    { 1, "123 Main St", "", "John", "Doe", "1234567890", 100 },
+                    { 2, "456 Elm St", "", "Jane", "Smith", "4567890123", 150 },
+                    { 3, "789 Oak St", "", "Michael", "Johnson", "7890123456", 200 },
+                    { 4, "321 Maple St", "", "Emily", "Williams", "3216540987", 120 },
+                    { 5, "654 Pine St", "", "Chris", "Brown", "6549873210", 180 },
+                    { 6, "987 Cedar St", "", "Jessica", "Jones", "9873216540", 90 },
+                    { 7, "234 Birch St", "", "David", "Davis", "2345678901", 250 },
+                    { 8, "567 Walnut St", "", "Sarah", "Miller", "5678901234", 300 },
+                    { 9, "890 Ash St", "", "Ryan", "Wilson", "8901234567", 150 },
+                    { 10, "432 Spruce St", "", "Laura", "Moore", "4327651098", 170 }
                 });
 
             migrationBuilder.InsertData(

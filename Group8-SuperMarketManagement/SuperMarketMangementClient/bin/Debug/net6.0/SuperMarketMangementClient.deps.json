@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "SuperMarketMangementClient/1.0.0": {
         "dependencies": {
+          "BusinessObject": "1.0.0",
           "DataAccess": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.28",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.28",

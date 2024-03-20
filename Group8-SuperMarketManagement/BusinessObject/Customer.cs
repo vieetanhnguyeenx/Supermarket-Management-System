@@ -23,6 +23,8 @@ namespace BusinessObject
         [Required]
         [Range(1, Int32.MaxValue)]
         public int Point {  get; set; }
+        [Required]
+        public string Email {  get; set; }  
         public virtual ICollection<SalesTransaction> SalesTransactions { get; set; }
     }
 }

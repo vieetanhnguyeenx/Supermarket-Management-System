@@ -119,6 +119,10 @@ namespace BusinessObject.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(40)
@@ -146,6 +150,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 1,
                             Address = "123 Main St",
+                            Email = "",
                             FirstName = "John",
                             LastName = "Doe",
                             Phone = "1234567890",
@@ -155,6 +160,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 2,
                             Address = "456 Elm St",
+                            Email = "",
                             FirstName = "Jane",
                             LastName = "Smith",
                             Phone = "4567890123",
@@ -164,6 +170,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 3,
                             Address = "789 Oak St",
+                            Email = "",
                             FirstName = "Michael",
                             LastName = "Johnson",
                             Phone = "7890123456",
@@ -173,6 +180,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 4,
                             Address = "321 Maple St",
+                            Email = "",
                             FirstName = "Emily",
                             LastName = "Williams",
                             Phone = "3216540987",
@@ -182,6 +190,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 5,
                             Address = "654 Pine St",
+                            Email = "",
                             FirstName = "Chris",
                             LastName = "Brown",
                             Phone = "6549873210",
@@ -191,6 +200,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 6,
                             Address = "987 Cedar St",
+                            Email = "",
                             FirstName = "Jessica",
                             LastName = "Jones",
                             Phone = "9873216540",
@@ -200,6 +210,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 7,
                             Address = "234 Birch St",
+                            Email = "",
                             FirstName = "David",
                             LastName = "Davis",
                             Phone = "2345678901",
@@ -209,6 +220,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 8,
                             Address = "567 Walnut St",
+                            Email = "",
                             FirstName = "Sarah",
                             LastName = "Miller",
                             Phone = "5678901234",
@@ -218,6 +230,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 9,
                             Address = "890 Ash St",
+                            Email = "",
                             FirstName = "Ryan",
                             LastName = "Wilson",
                             Phone = "8901234567",
@@ -227,6 +240,7 @@ namespace BusinessObject.Migrations
                         {
                             CustomerID = 10,
                             Address = "432 Spruce St",
+                            Email = "",
                             FirstName = "Laura",
                             LastName = "Moore",
                             Phone = "4327651098",

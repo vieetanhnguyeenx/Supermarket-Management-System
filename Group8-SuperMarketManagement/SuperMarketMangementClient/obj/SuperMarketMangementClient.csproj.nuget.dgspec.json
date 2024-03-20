@@ -210,6 +210,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+              },
               "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
                 "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj"
               }

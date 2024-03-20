@@ -23,6 +23,7 @@ namespace DataAccess.DTOs
         [Required]
         [Range(1, Int32.MaxValue)]
         public int Point { get; set; }
+        public string Email { get; set; }
     }
     public class CustomerDTOCreate
     {
@@ -37,6 +38,7 @@ namespace DataAccess.DTOs
         [Required]
         [Range(1, Int32.MaxValue)]
         public int Point { get; set; }
+        public string Email { get; set; }
     }
     public class CustomerDTOPUT
     {
@@ -53,5 +55,6 @@ namespace DataAccess.DTOs
         [Required]
         [Range(1, Int32.MaxValue)]
         public int Point { get; set; }
+        public string Email { get; set; }
     }
 }
