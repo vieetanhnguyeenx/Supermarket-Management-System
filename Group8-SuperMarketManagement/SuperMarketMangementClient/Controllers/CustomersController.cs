@@ -38,22 +38,35 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LastName,FirstName,Address,Phone,Point")] CustomerDTOPUT customer)
+        public async Task<IActionResult> Edit([Bind("CustomerID,LastName,FirstName,Address,Phone,Point,Email")] CustomerDTOPUT customer)
         {
-            if (id == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                HttpResponseMessage response = await client.PutAsJsonAsync("https://localhost:5000/api/Customer/" + customer.CustomerID, customer);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else return NotFound();
             }
-            customer.CustomerID = id;
+            return View(customer);
 
-
-            HttpResponseMessage response = await client.PutAsJsonAsync("https://localhost:5000/api/Customer/" + id, customer);
-            if (response.IsSuccessStatusCode)
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("LastName,FirstName,Address,Phone,Point,Email")] CustomerDTOCreate customer)
+        {
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            else return NotFound();
 
+                HttpResponseMessage response = await client.PostAsJsonAsync("https://localhost:5000/api/Customer", customer);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Create");
+            }
+            return View(customer);
 
         }
     }
