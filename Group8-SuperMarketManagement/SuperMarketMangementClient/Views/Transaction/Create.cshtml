@@ -220,8 +220,8 @@
             }
 
 
-            // var userId = @Json.Serialize(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var userId = "abc123456";
+            var userId = @Json.Serialize(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            //var userId = "abc123456";
             $("#AddButton").click(function () {
                 if (!validationOrder()) {
                     return;
