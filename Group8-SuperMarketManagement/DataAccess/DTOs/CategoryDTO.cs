@@ -17,7 +17,8 @@ namespace DataAccess.DTOs
         public string CategoryName { get; set; } = null!;
         [Required, StringLength(100)]
         public string? Description { get; set; }
-       
+        public bool Discontinued { get; set; }
+
     }
     public class CategoryDTOPUT
     {

@@ -9,39 +9,108 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discontinued)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discontinued)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
-            </td>
-        </tr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <form id="form-search" class="my-4">
+                <h4>Search</h4>
+                <div class="form-group mb-2">
+                    <input name="keyword" placeholder="Category Name" class="form-control" />
+                </div>
+                <div class="form-group mb-2">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover table-bordered m-2">
+        <thead class="table-dark">
+            <tr>
+                <th>Category Name</th>
+                <th>Description</th>
+           
+                <th>Discontinued</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ShowAllProducts();
+
+            function ShowAllProducts() {
+                $("table tbody").html("");
+                $.ajax({
+                    url: "https://localhost:5000/api/Category",
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (result, status, xhr) {
+                        $.each(result, function (index, value) {
+                            $("tbody").append($("<tr>"));
+                            const appendElement = $("tbody tr").last();
+                            appendElement.append($("<td>").html(value["categoryName"]));
+                            appendElement.append($("<td>").html(value["description"]));
+                           
+                            appendElement.append($("<td>").html(value["discontinued"]));
+                            appendElement.append($("<td>").html(
+                                "<a class='btn btn-warning' href='Categories/Edit?id=" + value["categoryID"] + "'>Edit</a>" +
+                                "<a class='btn btn-danger ms-2' href='Categories/Delete?id=" + value["categoryID"] + "'>Delete</a>"
+                            ));
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                })
+            }
+
+            $("#form-search").submit(function (e) {
+                e.preventDefault();
+                console.log("123");
+                const keyword = $("input[name='keyword']").val();
+                console.log(keyword);
+                if (keyword != null) {
+                    console.log("123");
+                    $.ajax({
+                        url: "https://localhost:5000/api/Category?$filter= (contains(tolower(categoryName), tolower('" + keyword + "')))",
+                        type: "GET",
+                        contentType: "application/json",
+                        success: function (result, status, xhr) {
+                            $("table tbody").html("");
+                            $.each(result, function (index, value) {
+                                $("tbody").append($("<tr>"));
+                                const appendElement = $("tbody tr").last();
+                                appendElement.append($("<td>").html(value["categoryName"]));
+                                appendElement.append($("<td>").html(value["description"]));
+
+                                appendElement.append($("<td>").html(value["discontinued"]));
+                                appendElement.append($("<td>").html(
+                                    "<a class='btn btn-warning' href='Categories/Edit?id=" + value["categoryID"] + "'>Edit</a>" +
+                                    "<a class='btn btn-danger ms-2' href='Categories/Delete?id=" + value["categoryID"] + "'>Delete</a>"
+                                ));
+                            })
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(xhr);
+                        }
+                    })
+                    console.log("https://localhost:5000/api/Customer?$filter=not (contains(tolower(firstName), '" + keyword + "') or contains(tolower(lastName), '" + keyword + "'))");
+                }
+
+
+            })
+
+            $("#clear-search").click(function () {
+                $("input[name='keyword']").val("");
+                ShowAllProducts();
+            })
+        })
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
 }
-    </tbody>
-</table>

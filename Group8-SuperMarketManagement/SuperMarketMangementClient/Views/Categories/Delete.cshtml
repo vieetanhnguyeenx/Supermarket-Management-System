@@ -1,4 +1,4 @@
-﻿@model BusinessObject.Category
+﻿@model DataAccess.DTOs.CategoryDTOResponse
 
 @{
     ViewData["Title"] = "Delete";
@@ -23,12 +23,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discontinued)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discontinued)
-        </dd>
+        
     </dl>
     
     <form asp-action="Delete">
