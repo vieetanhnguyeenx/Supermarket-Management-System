@@ -51,6 +51,10 @@ namespace DataAccess.DAO
                 {
                     inventory.Discontinued = false;
                     context.Inventories.Add(inventory);
+                    var pro = context.Products.FirstOrDefault(x => x.ProductID == inventory.ProductID);
+                    pro.TotalQuantity += inventory.Quantity;
+                    context.Entry<Product>(pro).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    
                     context.SaveChanges();
                 }
             }
