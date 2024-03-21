@@ -58,11 +58,11 @@
                         <tr>
                             <td colspan='5'>No data</td>
                         </tr>
-                        <tr id="TotalRow">
-                            <td colspan="3"><strong>Total</strong></td>
-                            <td id="TotalAmount" colspan="2"></td>
-                        </tr>
                     </tbody>
+                    <tr id="TotalRow">
+                        <td colspan="3"><strong>Total</strong></td>
+                        <td id="TotalAmount" colspan="2"></td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -89,8 +89,6 @@
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-            const email ="";
-            const money;
             const listItems = [];
 
             getAllProducts();
@@ -240,21 +238,9 @@
                 })
                 console.log(amount);
                 var customerIDValue = $("#Customer").val() === '1' ? null : $("#Customer").val();
-                var cashReceived = parseFloat($("#CashReceived  ").val());
+                var cashReceived = parseFloat($("#CashReceived").val());
                 var totalPrice = parseFloat(amount);
                 var change = cashReceived - totalPrice;
-                // $.ajax({
-                //     url: "https://localhost:5000/api/Customer?$filter=customerID eq " + customerIDValue + "&$select=email",
-                //     type: "GET",
-                //     contentType: "application/json",
-                //     success: function (data) {
-                //         email = data.value[0].email;
-
-                //     },
-                //     error: function (xhr, status, error) {
-                //         console.error("Error retrieving customer email:", xhr, status, error);
-                //     }
-                // });
                 $.ajax({
                     url: "https://localhost:5000/api/SalesTransaction",
                     type: "POST",
@@ -272,17 +258,17 @@
                     beforeSend: function (xhr) {
                     },
                     success: function (result, xhr) {
-                         Email.send({
-                             Host: "smtp.elasticemail.com",
-                             Username: "xuankhbm2@gmail.com",
-                             Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
-                             To: 'xuankhbm1@gmail.com',
-                             From: "xuankhbm2@gmail.com",
-                             Subject: "Thank you",
-                            Body: "Thank you for purchasing at our store and your order price:" + totalPrice + "VND "
-                         }).then(
-                             message => alert("Payment Succesfull!")
-                         );
+                               Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "xuankhbm2@gmail.com",
+            Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
+            To: 'xuankhbm1@gmail.com',
+            From: "xuankhbm2@gmail.com",
+            Subject: "Thank you",
+            Body: "Thank you for purchasing at our store and your order price:VND "
+        }).then(
+            alert("Payment Succesfull!")
+        );
                         // Redirect to home
                         window.location.href = "/Transaction/Create";
                     },
@@ -294,7 +280,6 @@
             })
         })
     </script>
-       
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
 }
