@@ -258,17 +258,17 @@
                     beforeSend: function (xhr) {
                     },
                     success: function (result, xhr) {
-                               Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "xuankhbm2@gmail.com",
-            Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
-            To: 'xuankhbm1@gmail.com',
-            From: "xuankhbm2@gmail.com",
-            Subject: "Thank you",
-            Body: "Thank you for purchasing at our store and your order price:VND "
-        }).then(
-            alert("Payment Succesfull!")
-        );
+                         Email.send({
+                            Host: "smtp.elasticemail.com",
+                            Username: "xuankhbm2@gmail.com",
+                            Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
+                            To: 'xuankhbm1@gmail.com',
+                            From: "xuankhbm2@gmail.com",
+                            Subject: "Thank you",
+                            Body: "Thank you for purchasing at our store and your order price:" + totalPrice + "VND "
+                    }).then(
+                        alert("Payment Succesfull!")
+                    );
                         // Redirect to home
                         window.location.href = "/Transaction/Create";
                     },

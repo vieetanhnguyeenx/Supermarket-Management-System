@@ -19,7 +19,7 @@ namespace SuperMarketManagementAPI.Controllers
             var ord = transactionRepository.GetTransaction(TransactionID);
             try
             {
-                 email.Send("nghiatdhe163119@fpt.edu.vn", "12344");
+                 email.Send("nghiatdhe163119@fpt.edu.vn", "xuankhbm2@gmail.com","Thank You","Thank You");
                 return Ok();
             }
             catch (Exception ex)

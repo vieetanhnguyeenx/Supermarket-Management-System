@@ -8,6 +8,6 @@ namespace DataAccess.Repository
 {
     public interface IEmailService
     {
-        void Send(string to,  string html);
+        void Send(string to, string from, string subject, string body);
     }
 }
