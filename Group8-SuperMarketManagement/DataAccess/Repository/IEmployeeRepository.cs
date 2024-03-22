@@ -6,6 +6,7 @@ namespace DataAccess.Repository
     public interface IEmployeeRepository
     {
         Task<IdentityResult> SigUpAsyn(EmployeeSignUpModel user);
-        Task<string> SignInAsyn(EmployeeSignInModel user);
+        Task<EmployeeSignInResponse> SignInAsyn(EmployeeSignInModel user);
+
     }
 }

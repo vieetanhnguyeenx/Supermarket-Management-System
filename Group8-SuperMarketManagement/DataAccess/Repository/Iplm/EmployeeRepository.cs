@@ -28,13 +28,13 @@ namespace DataAccess.Repository.Iplm
             this.configuration = configuration;
             this.roleManager = roleManager;
         }
-        public async Task<string> SignInAsyn(EmployeeSignInModel userModel)
+        public async Task<EmployeeSignInResponse> SignInAsyn(EmployeeSignInModel userModel)
         {
             var user = await userManager.FindByEmailAsync(userModel.Email);
             var passwordValid = await userManager.CheckPasswordAsync(user, userModel.Password);
             if (user == null || !passwordValid)
             {
-                return string.Empty;
+                return null;
             }
 
 
@@ -45,7 +45,8 @@ namespace DataAccess.Repository.Iplm
 
             if (!result.Succeeded)
             {
-                return string.Empty;
+                return null;
+
             }
 
             var authClaims = new List<Claim>
@@ -73,7 +74,12 @@ namespace DataAccess.Repository.Iplm
                     SecurityAlgorithms.HmacSha512Signature)
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            string stringToken = new JwtSecurityTokenHandler().WriteToken(token);
+            return new EmployeeSignInResponse
+            {
+                Token = stringToken,
+                UserId = user.Id
+            };
         }
 
         public async Task<IdentityResult> SigUpAsyn(EmployeeSignUpModel user)

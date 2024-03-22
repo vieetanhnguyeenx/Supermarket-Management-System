@@ -10,12 +10,6 @@ namespace DataAccess.DTOs
         public string Password { get; set; } = "";
     }
 
-    public class EmployeeSignInResponse
-    {
-        public string UserId { get; set; } = "";
-        public string Token { get; set; } = "";
-    }
-
     public class EmployeeSignUpModel
     {
 
@@ -33,6 +27,4 @@ namespace DataAccess.DTOs
         public string? Address { get; set; } = null!;
         public string? Phone { get; set; } = null!;
     }
-
-
 }
