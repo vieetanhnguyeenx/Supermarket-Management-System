@@ -191,14 +191,14 @@
                     totalAmount += totalPrice;
                     $("#OrderDetails").append("<tr>" +
                         "<td>" + item["productName"] + "</td>" +
-                        "<td>" + formatter.format(item["unitPrice"]) + "</td>" +
+                        "<td>" + item["unitPrice"] + "</td>" +
                         "<td><input type='number' class='quantity-input' value='" + item["quantity"] + "' min='1'></td>" +
-                        "<td>" + formatter.format(totalPrice) + "</td>" +
+                        "<td>" + totalPrice +" VND"+"</td>" +
                         "<td><button class='btn btn-danger delete-button' data-product-id='" + item["productID"] + "'>Delete</button></td>" +
                         "</tr>");
                 })
                 console.log(totalAmount);
-                $("#TotalAmount").text(formatter.format(totalAmount));
+                $("#TotalAmount").text(totalAmount + " VND");
             }
             $("#OrderDetails").on("change", ".quantity-input", function () {
                 var index = $(this).closest("tr").index();
@@ -226,6 +226,7 @@
 
 
             $("#products").on("click", ".add-button", function () {
+                console.log("DSĐSDSDS");
                 var cartItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
                 var productId = $(this).data("product-id");
                 var isProductExists = cartItems.some(function (item) {
@@ -339,8 +340,8 @@
                 })
                 console.log(amount);
                 var customerIDValue = $("#Customer").val() === '1' ? null : $("#Customer").val();
-                var cashReceived = parseFloat($("#CashReceived").val());
-                var totalPrice = parseFloat(amount);
+                var cashReceived = parseInt($("#CashReceived").val());
+                var totalPrice = parseInt(amount);
                 var change = cashReceived - totalPrice;
                 $.ajax({
                     url: "https://localhost:5000/api/SalesTransaction",
