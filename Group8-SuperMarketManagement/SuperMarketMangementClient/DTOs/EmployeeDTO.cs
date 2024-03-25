@@ -10,6 +10,12 @@ namespace DataAccess.DTOs
         public string Password { get; set; } = "";
     }
 
+    public class EmployeeSignInResponse
+    {
+        public string UserId { get; set; } = "";
+        public string Token { get; set; } = "";
+    }
+
     public class EmployeeSignUpModel
     {
 
