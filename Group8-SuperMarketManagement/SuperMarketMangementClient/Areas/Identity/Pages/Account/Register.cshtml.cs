@@ -3,6 +3,7 @@
 #nullable disable
 
 using BusinessObject;
+using DataAccess.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -23,12 +24,14 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<Employee> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         public RegisterModel(
             UserManager<Employee> userManager,
             IUserStore<Employee> userStore,
             SignInManager<Employee> signInManager,
             ILogger<RegisterModel> logger,
+            RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -37,6 +40,7 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.roleManager = roleManager;
         }
 
         /// <summary>
@@ -113,6 +117,13 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    if (!await roleManager.RoleExistsAsync(AppRole1.Employee))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(AppRole.Employee));
+                    }
+
+                    await _userManager.AddToRoleAsync(user, AppRole1.Employee);
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

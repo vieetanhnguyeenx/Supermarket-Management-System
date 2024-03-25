@@ -30,7 +30,7 @@ namespace SuperMarketManagementAPI.Controllers
 		public async Task<IActionResult> SignIn(EmployeeSignInModel model)
 		{
 			var result = await repository.SignInAsyn(model);
-			if (result != null)
+			if (result == null)
 				return Unauthorized();
 
 			return Ok(result);
