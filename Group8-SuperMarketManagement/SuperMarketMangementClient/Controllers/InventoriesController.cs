@@ -51,7 +51,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate")] InventoryDTOCreate customer)
+        public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate,EmployeeID")] InventoryDTOCreate customer)
         {
             if (ModelState.IsValid)
             {
