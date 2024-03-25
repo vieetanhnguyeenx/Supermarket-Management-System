@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj": {}
+    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj": {}
   },
   "projects": {
-    "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
+        "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\xuank\\.nuget\\packages\\",
+        "outputPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\xuank\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -83,21 +88,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
+    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\obj\\",
+        "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\xuank\\.nuget\\packages\\",
+        "outputPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\xuank\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,8 +116,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+              "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -121,6 +126,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -172,21 +182,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj": {
+    "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj",
+        "projectUniqueName": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj",
         "projectName": "SuperMarketMangementClient",
-        "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\obj\\",
+        "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\SuperMarketMangementClient.csproj",
+        "packagesPath": "C:\\Users\\xuank\\.nuget\\packages\\",
+        "outputPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\SuperMarketMangementClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\xuank\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -200,11 +210,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
+              "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\BusinessObject\\BusinessObject.csproj"
               },
-              "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\FPTUniversity\\PRN231_Project\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj"
+              "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\PRN231\\Supermarket-Management-System\\Group8-SuperMarketManagement\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -213,6 +223,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -281,7 +296,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

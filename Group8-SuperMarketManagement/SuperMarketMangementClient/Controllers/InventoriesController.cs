@@ -28,6 +28,7 @@ namespace SuperMarketMangementClient.Controllers
         // GET: Inventories
         public IActionResult Index()
         {
+           
             return View();
         }
         public async Task<IActionResult> Create()
@@ -50,11 +51,11 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate,EmployeeID")] InventoryDTOCreate customer)
+        public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate")] InventoryDTOCreate customer)
         {
             if (ModelState.IsValid)
             {
-
+              
                 HttpResponseMessage response = await client.PostAsJsonAsync("https://localhost:5000/api/Inventory", customer);
                 if (response.IsSuccessStatusCode)
                 {
