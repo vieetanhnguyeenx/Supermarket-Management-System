@@ -1,4 +1,5 @@
 ﻿@using System.Security.Claims;
+@using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "Create Transaction";
 }
@@ -18,26 +19,38 @@
             <div>
                 <h5>Add product:</h5>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="Product" class="control-label mb-1">Name</label>
-                            <select id="Product" class="form-control"></select>
-                        </div>
+                    <div class="col-4">
+                        <form id="form-search" class="my-4">
+                            <h4>Search</h4>
+                            <div class="form-group mb-2">
+                                <input name="keyword" class="form-control" />
+                            </div>
+                            <div class="form-group mb-2">
+                                <input type="submit" value="Search" class="btn btn-primary" />
+                                <button id="clear-search" class="btn btn-info">Reset</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="Quantity" class="control-label mb-1">Quantity</label>
-                            <input id="Quantity" value="1" min="1" type="number" class="form-control" />
-                            <span id="Quantity-error" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label"></label>
-                            <input id="AddToOrderBtn" type="submit" value="Add to cart"
-                                   class="btn btn-warning d-block" />
-                        </div>
-                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-striped table-hover table-bordered m-2">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Name</th>
+                                <th>Unit Price</th>
+                                <th>Units in stock</th>
+                                <th>Category</th>
+                                <th>Supplier</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="products">
+                            <tr>
+                                <td colspan='7'>No data</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <hr />
@@ -69,7 +82,7 @@
         <div class="col-md-4">
             <div class="form-group mb-2">
                 <label for="CashReceived" class="control-label mb-1">Cash Received <span class="text-danger">*</span></label>
-                <input type ="number" id="CashReceived" class="form-control" />
+                <input type="number" id="CashReceived" class="form-control" />
                 <span id="CashReceived-error" class="text-danger"></span>
             </div>
             <div class="form-group mb-4">
@@ -86,33 +99,62 @@
     </div>
 </div>
 
+
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
             const listItems = [];
+            ShowAllProducts();
 
-            getAllProducts();
+            renderListItems()
             getAllCustomers();
 
             const formatter = new Intl.NumberFormat('vi-VN', {
                 style: 'currency',
                 currency: 'VND',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
             });
 
-            function getAllProducts() {
+            function loadItemsFromSessionStorage() {
+                const cartItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
+                listItems.length = 0;
+                cartItems.forEach(function (item) {
+                    listItems.push(item);
+                });
+            }
+
+            function ShowAllProducts() {
+                $("#products").html("");
+                var count = 0;
                 $.ajax({
                     url: "https://localhost:5000/api/Product",
                     type: "GET",
-                    success: function (result, xhr) {
-                        const listProducts = result;
-                        $.each(listProducts, function (key, item) {
-                            $("#Product").append("<option value='" + item["productID"] + "'>" + item["productName"] + " - " + item["totalQuantity"] + "</option>");
-                        })
+                    contentType: "application/json",
+                    success: function (result, status, xhr) {
+                        $.each(result, function (index, value) {
+                            if (count < 5) {
+                                var appendElement = $("<tr>");
+                                appendElement.append($("<td>").html(value["productName"]));
+                                appendElement.append($("<td>").html(value["price"]));
+                                appendElement.append($("<td>").html(value["totalQuantity"]));
+                                appendElement.append($("<td>").html(value["category"]["categoryName"]));
+                                appendElement.append($("<td>").html(value["supplier"]["companyName"]));
+                                appendElement.append($("<td>").html(value["description"]));
+                                appendElement.append($("<td>").html(
+                                    "<button class='btn btn-success add-button' data-product-id='" + value["productID"] + "'>Add</button>"
+                                ));
+                                $("#products").append(appendElement);
+                                count++;
+                            } else {
+                                return false;
+                            }
+                        });
                     },
-                    error: function (xhr, error) {
-                        console.log(xhr)
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
                     }
-                })
+                });
             }
 
             function getAllCustomers() {
@@ -133,52 +175,8 @@
                 })
             }
 
-            // handle add to listItems
-            $("#AddToOrderBtn").click(function () {
-                const productID = $("#Product").val();
-                const quantity = $("#Quantity").val();
-
-                if (parseInt(quantity) < 1) {
-                    $("#Quantity-error").html("Quantity must be greater than 0");
-                    return;
-                }
-
-                $.ajax({
-                    url: "https://localhost:5000/api/Product/" + productID,
-                    type: "GET",
-                    beforeSend: function (xhr) {
-                    },
-                    success: function (result, xhr) {
-                        const previousItem = listItems.find(x => x["productID"] == productID);
-                        if (previousItem) {
-                            if (parseInt(previousItem["quantity"]) + parseInt(quantity) > result["totalQuantity"]) {
-                                $("#Quantity-error").html("Quantity must be less than or equal to units in stock");
-                                return;
-                            }
-                            previousItem["quantity"] = parseInt(previousItem["quantity"]) + parseInt(quantity);
-                        }
-                        else {
-                            if (parseInt(quantity) > result["totalQuantity"]) {
-                                $("#Quantity-error").html("Quantity must be less than or equal to units in stock");
-                                return;
-                            }
-                            const item = {
-                                "productID": productID,
-                                "productName": result["productName"],
-                                "unitPrice": result["price"],
-                                "quantity": quantity
-                            }
-                            listItems.push(item);
-                        }
-                        renderListItems();
-                    },
-                    error: function (xhr, error) {
-                        console.log(xhr)
-                    }
-                })
-            })
-
             function renderListItems() {
+                loadItemsFromSessionStorage()
                 $("#OrderDetails").empty();
                 let totalAmount = 0;
                 if (listItems.length == 0) {
@@ -191,21 +189,79 @@
                     $("#OrderDetails").append("<tr>" +
                         "<td>" + item["productName"] + "</td>" +
                         "<td>" + formatter.format(item["unitPrice"]) + "</td>" +
-                        "<td>" + item["quantity"] + "</td>" +
+                        "<td><input type='number' class='quantity-input' value='" + item["quantity"] + "' min='1'></td>" +
                         "<td>" + formatter.format(totalPrice) + "</td>" +
-                        "<td><button class='btn btn-danger' onclick='deleteItem(" + item["productID"] + ")'>Delete</button></td>" +
+                        "<td><button class='btn btn-danger delete-button' data-product-id='" + item["productID"] + "'>Delete</button></td>" +
                         "</tr>");
                 })
                 console.log(totalAmount);
-                $("#TotalAmount").text(totalAmount);
+                $("#TotalAmount").text(formatter.format(totalAmount));
             }
-            
-            // handle delete item
-            window.deleteItem = function (productID) {
-                const index = listItems.findIndex(x => x["productID"] == productID);
-                listItems.splice(index, 1);
-                renderListItems();
-            }
+            $("#OrderDetails").on("change", ".quantity-input", function () {
+                var index = $(this).closest("tr").index();
+                var newQuantity = parseInt($(this).val());
+                listItems[index]["quantity"] = newQuantity;
+                sessionStorage.setItem("cartItems", JSON.stringify(listItems));
+                renderListItems(); // Re-render the list to reflect the changes
+            });
+
+            $("#OrderDetails").on("click", ".delete-button", function () {
+                var productIdToDelete = $(this).data("product-id");
+                var indexToDelete = -1;
+                for (var i = 0; i < listItems.length; i++) {
+                    if (listItems[i].productID === productIdToDelete) {
+                        indexToDelete = i;
+                        break;
+                    }
+                }
+                if (indexToDelete !== -1) {
+                    listItems.splice(indexToDelete, 1); // Xóa sản phẩm có ID tương ứng
+                    sessionStorage.setItem("cartItems", JSON.stringify(listItems));
+                    renderListItems(); // Re-render danh sách sản phẩm để hiển thị thay đổi
+                }
+            });
+
+
+            $("#products").on("click", ".add-button", function () {
+                var cartItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
+                var productId = $(this).data("product-id");
+                var isProductExists = cartItems.some(function (item) {
+                    return item.productID === productId;
+                });
+                if (isProductExists) {
+                    cartItems.forEach(function (item) {
+                        if (item.productID === productId) {
+                            item.quantity++;
+                            console.log("Quantity of existing product in cart increased by 1");
+                        }
+                    });
+                    sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    console.log("bo may o day nay");
+                    renderListItems();
+                    return;
+                }
+                $.ajax({
+                    url: "https://localhost:5000/api/Product/" + productId,
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (result, status, xhr) {
+                        const productToAdd = {
+                            productID: result.productID,
+                            productName: result.productName,
+                            unitPrice: result.price,
+                            quantity: 1
+                        };
+                        cartItems.push(productToAdd);
+                        sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
+                        console.log("bo may o day nay2");
+                        renderListItems();
+                        alert("Product added to cart successfully!");
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                });
+            });
 
             const validationOrder = () => {
                 let isValid = true;
@@ -219,9 +275,49 @@
                 return isValid;
             }
 
+            $("#form-search").submit(function (e) {
+                e.preventDefault();
+                var count = 0;
+                const keyword = $("input[name='keyword']").val();
+                $.ajax({
+                    url: "https://localhost:5000/api/Product/Search/" + keyword,
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (result, status, xhr) {
+                        $("#products").html("");
+                        $.each(result, function (index, value) {
+                            if (count < 5) {
+                                var appendElement = $("<tr>");
+                                appendElement.append($("<td>").html(value["productName"]));
+                                appendElement.append($("<td>").html(value["price"]));
+                                appendElement.append($("<td>").html(value["totalQuantity"]));
+                                appendElement.append($("<td>").html(value["category"]["categoryName"]));
+                                appendElement.append($("<td>").html(value["supplier"]["companyName"]));
+                                appendElement.append($("<td>").html(value["description"]));
+                                appendElement.append($("<td>").html(
+                                    "<button class='btn btn-success add-button' data-product-id='" + value["productID"] + "'>Add</button>"
+                                ));
+                                $("#products").append(appendElement);
+                                count++;
+                            } else {
+                                return false;
+                            }
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                })
+            })
+            $("#clear-search").click(function () {
+                $("input[name='keyword']").val("");
+                ShowAllProducts();
+            })
+            /////////
 
-            // var userId = @Json.Serialize(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var userId = "abc123456";
+            var userId = @Json.Serialize(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            // var userId = HttpContext.Session.GetString("UserId");
+            // var userId = "abc123456";
             $("#AddButton").click(function () {
                 if (!validationOrder()) {
                     return;
@@ -233,7 +329,7 @@
                         "productID": item["productID"],
                         "quantity": item["quantity"],
                         "unitPrice": item["unitPrice"],
-                        "discount":0
+                        "discount": 0
                     }
                 })
                 console.log(amount);
@@ -258,17 +354,18 @@
                     beforeSend: function (xhr) {
                     },
                     success: function (result, xhr) {
-                         Email.send({
+                        sessionStorage.removeItem("cartItems");
+                        Email.send({
                             Host: "smtp.elasticemail.com",
                             Username: "xuankhbm2@gmail.com",
                             Password: "9C85111C165AEE83EF3C72142E1FF672CD1B",
                             To: 'xuankhbm1@gmail.com',
                             From: "xuankhbm2@gmail.com",
                             Subject: "Thank you",
-                            Body: "Thank you for purchasing at our store and your order price:" + totalPrice + "VND "
-                    }).then(
-                        alert("Payment Succesfull!")
-                    );
+                            Body: "Thank you for purchasing at our store and your order price:VND "
+                        }).then(
+                            alert("Payment Succesfull!")
+                        );
                         // Redirect to home
                         window.location.href = "/Transaction/Create";
                     },
