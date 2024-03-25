@@ -14,6 +14,7 @@ namespace SuperMarketMangementClient.Controllers
 
         private readonly string JWTToken = "";
         private readonly string UserId = "";
+        private readonly string UserRole = "";
         private readonly IServiceProvider _services;
 
         public EmployeesController(IServiceProvider services)
@@ -23,10 +24,11 @@ namespace SuperMarketMangementClient.Controllers
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
             ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
             JWTToken = session.GetString("JWToken") ?? "";
             UserId = session.GetString("UserId") ?? "";
+            UserRole = session.GetString("UserRole") ?? "";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
 
         }
         [Authorize(Roles = AppRole1.Admin)]
@@ -97,6 +99,7 @@ namespace SuperMarketMangementClient.Controllers
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Employees/" + Id);
             if (response.IsSuccessStatusCode)
             {
+
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Delete");

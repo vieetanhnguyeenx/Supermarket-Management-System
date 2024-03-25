@@ -16,35 +16,34 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetProducts() => repository.GetProducts();
 
         [HttpGet("Disabled")]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
-        [Authorize]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetDisabledProducts() => repository.GetDisabledProducts();
 
         [HttpGet("Disabled/{id}")]
         [Authorize]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<ProductDTOResponse> GetDisanbledProductById(int id) => repository.GetDisabledProduct(id);
 
         [HttpGet("Search/{keyword}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<IEnumerable<ProductDTOResponse>> Search(string keyword) => repository.SearchProducts(keyword);
         [HttpGet("Disable/Search/{keyword}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<IEnumerable<ProductDTOResponse>> SearchDisable(string keyword) => repository.SearchDisableProducts(keyword);
 
         [HttpGet("{id}")]
         [Authorize]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<ProductDTOResponse> GetProductById(int id) => repository.GetProduct(id);
 
         [HttpPost]
         [Authorize]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult PostProduct(ProductDTOPOST postProduct)
         {
             if (repository.GetProducts().FirstOrDefault(f => f.ProductName.ToLower().Equals(postProduct.ProductName.ToLower())) != null)
@@ -57,7 +56,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("Disable/{id}")]
         [Authorize]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult DisableProduct(int id)
         {
             var product = repository.GetProduct(id);
@@ -71,6 +70,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("Undisable/{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult UndisableProduct(int id)
         {
             var product = repository.GetDisabledProduct(id);
@@ -84,6 +84,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult PutProduct(int id, ProductDTOPUT postProduct)
         {
             var productTmp = repository.GetProduct(id);
@@ -103,6 +104,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("{id}/{qty}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult PutProduct(int id, int qty)
         {
             var productTmp = repository.GetProduct(id);

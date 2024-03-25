@@ -13,18 +13,18 @@ namespace SuperMarketManagementAPI.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerRepository repository = new CustomerRepository();
+
         [HttpGet]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<IEnumerable<CustomerDTORespone>> GetCustomers() => repository.GetCustomers();
 
         [HttpGet("{id}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public ActionResult<CustomerDTORespone> GetCustomerById(int id) => repository.GetCustomerById(id);
 
         [HttpPost]
-        [Authorize(Roles = AppRole.Admin)]
-        [Authorize(Roles = AppRole.Employee)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult PostCustomer(CustomerDTOCreate customer)
         {
             try
@@ -38,8 +38,7 @@ namespace SuperMarketManagementAPI.Controllers
             }
         }
         [HttpPut("{id}")]
-        [Authorize(Roles = AppRole.Admin)]
-        [Authorize(Roles = AppRole.Employee)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
         public IActionResult PutCustomer(int id, CustomerDTOPUT customer)
         {
 

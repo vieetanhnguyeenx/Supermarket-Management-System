@@ -12,7 +12,6 @@
             Create new Transaction
 
         </h2>
-        <a href="/Transaction" class="btn btn-dark">Back</a>
     </div>
     <hr />
 
@@ -160,7 +159,7 @@
                 });
             }
 
-            function getAllCustomers() {
+            async function getAllCustomers() {
                 $.ajax({
                     url: "https://localhost:5000/api/Customer",
                     type: "GET",

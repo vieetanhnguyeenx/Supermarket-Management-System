@@ -22,10 +22,11 @@ namespace SuperMarketMangementClient.Controllers
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
             ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
             JWTToken = session.GetString("JWToken") ?? "";
             UserId = session.GetString("UserId") ?? "";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
+
         }
         [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Index()
