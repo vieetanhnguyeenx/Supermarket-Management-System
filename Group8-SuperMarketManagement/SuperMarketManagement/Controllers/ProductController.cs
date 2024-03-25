@@ -43,7 +43,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPost]
         [Authorize]
-        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Employee + "," + AppRole.Inventory)]
         public IActionResult PostProduct(ProductDTOPOST postProduct)
         {
             if (repository.GetProducts().FirstOrDefault(f => f.ProductName.ToLower().Equals(postProduct.ProductName.ToLower())) != null)

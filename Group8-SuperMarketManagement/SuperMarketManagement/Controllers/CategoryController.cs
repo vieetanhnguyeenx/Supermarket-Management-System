@@ -16,12 +16,11 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public ActionResult<IEnumerable<CategoryDTOResponse>> GetCategories() => repository.GetCategories();
 
         [HttpPost]
-        [Authorize(Roles = AppRole.Admin)]
-        [Authorize(Roles = AppRole.Inventory)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public IActionResult PostCategory(CategoryDTOCreateRequest category)
         {
             try

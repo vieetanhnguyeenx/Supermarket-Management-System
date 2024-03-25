@@ -86,7 +86,7 @@ namespace SuperMarketMangementClient.Controllers
                 {
                     if (UserRole.ToLower() == AppRole1.Employee.ToLower())
                     {
-                        return RedirectToAction("Transaction", "Create");
+                        return RedirectToAction("Create", "Transaction");
                     }
                     return RedirectToAction("Index");
                 }
