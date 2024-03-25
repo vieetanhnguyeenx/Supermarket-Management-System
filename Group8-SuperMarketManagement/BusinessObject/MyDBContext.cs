@@ -59,16 +59,16 @@ namespace BusinessObject
                 new Supplier { SupplierID = 10, CompanyName = "QRS Enterprises", Address = "432 Spruce St", Phone = "4327651098", Discontinued = false }
                 );
             modelBuilder.Entity<Product>().HasData(
-                new Product { ProductID = 1, ProductName = "Product 1", SupplierID = 1, CategoryID = 1, Description = "Description of Product 1", Discontinued = false, TotalQuantity = 100, Price = 10.99m },
-                new Product { ProductID = 2, ProductName = "Product 2", SupplierID = 2, CategoryID = 2, Description = "Description of Product 2", Discontinued = false, TotalQuantity = 150, Price = 20.50m },
-                new Product { ProductID = 3, ProductName = "Product 3", SupplierID = 3, CategoryID = 1, Description = "Description of Product 3", Discontinued = false, TotalQuantity = 200, Price = 15.75m },
-                new Product { ProductID = 4, ProductName = "Product 4", SupplierID = 4, CategoryID = 3, Description = "Description of Product 4", Discontinued = false, TotalQuantity = 120, Price = 25.00m },
-                new Product { ProductID = 5, ProductName = "Product 5", SupplierID = 5, CategoryID = 2, Description = "Description of Product 5", Discontinued = false, TotalQuantity = 180, Price = 18.25m },
-                new Product { ProductID = 6, ProductName = "Product 6", SupplierID = 6, CategoryID = 3, Description = "Description of Product 6", Discontinued = false, TotalQuantity = 90, Price = 30.75m },
-                new Product { ProductID = 7, ProductName = "Product 7", SupplierID = 7, CategoryID = 1, Description = "Description of Product 7", Discontinued = false, TotalQuantity = 250, Price = 22.99m },
-                new Product { ProductID = 8, ProductName = "Product 8", SupplierID = 8, CategoryID = 2, Description = "Description of Product 8", Discontinued = false, TotalQuantity = 300, Price = 12.50m },
-                new Product { ProductID = 9, ProductName = "Product 9", SupplierID = 9, CategoryID = 3, Description = "Description of Product 9", Discontinued = false, TotalQuantity = 150, Price = 28.00m },
-                new Product { ProductID = 10, ProductName = "Product 10", SupplierID = 10, CategoryID = 1, Description = "Description of Product 10", Discontinued = false, TotalQuantity = 170, Price = 17.99m }
+                new Product { ProductID = 1, ProductName = "Product 1", SupplierID = 1, CategoryID = 1, Description = "Description of Product 1", Discontinued = false, TotalQuantity = 100, Price = 10 },
+                new Product { ProductID = 2, ProductName = "Product 2", SupplierID = 2, CategoryID = 2, Description = "Description of Product 2", Discontinued = false, TotalQuantity = 150, Price = 20 },
+                new Product { ProductID = 3, ProductName = "Product 3", SupplierID = 3, CategoryID = 1, Description = "Description of Product 3", Discontinued = false, TotalQuantity = 200, Price = 15 },
+                new Product { ProductID = 4, ProductName = "Product 4", SupplierID = 4, CategoryID = 3, Description = "Description of Product 4", Discontinued = false, TotalQuantity = 120, Price = 25 },
+                new Product { ProductID = 5, ProductName = "Product 5", SupplierID = 5, CategoryID = 2, Description = "Description of Product 5", Discontinued = false, TotalQuantity = 180, Price = 18 },
+                new Product { ProductID = 6, ProductName = "Product 6", SupplierID = 6, CategoryID = 3, Description = "Description of Product 6", Discontinued = false, TotalQuantity = 90, Price = 30 },
+                new Product { ProductID = 7, ProductName = "Product 7", SupplierID = 7, CategoryID = 1, Description = "Description of Product 7", Discontinued = false, TotalQuantity = 250, Price = 22 },
+                new Product { ProductID = 8, ProductName = "Product 8", SupplierID = 8, CategoryID = 2, Description = "Description of Product 8", Discontinued = false, TotalQuantity = 300, Price = 12 },
+                new Product { ProductID = 9, ProductName = "Product 9", SupplierID = 9, CategoryID = 3, Description = "Description of Product 9", Discontinued = false, TotalQuantity = 150, Price = 28 },
+                new Product { ProductID = 10, ProductName = "Product 10", SupplierID = 10, CategoryID = 1, Description = "Description of Product 10", Discontinued = false, TotalQuantity = 170, Price = 17 }
                 );
             modelBuilder.Entity<Customer>().HasData(
                 new Customer {CustomerID=1, LastName = "Doe", FirstName = "John", Address = "123 Main St", Phone = "1234567890", Point = 100,Email="" },
