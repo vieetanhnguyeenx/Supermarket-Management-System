@@ -1,4 +1,5 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
 using Microsoft.AspNetCore.Authorization;
@@ -14,18 +15,22 @@ namespace SuperMarketManagementAPI.Controllers
         private IProductRepository productRepository = new ProductRepository();
         [HttpGet]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<SalesTransactionDTOResponse>> GetTransactions() => repository.GetAllTransactions();
 
         [HttpGet("Employee/{employeeID}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<SalesTransactionDTOResponse>> GetTransactionsByEmployeeID(string employeeID) => repository.GetAllTransactionsByEmployeeID(employeeID);
 
         [HttpGet("{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<SalesTransactionDTOResponse> GetTransactionById(int id) => repository.GetTransaction(id);
 
         [HttpPost]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult PostProduct(SalesTransactionDTOPOST postTransaction)
         {
             repository.SaveTransaction(postTransaction);
@@ -40,6 +45,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("Disable/{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult PutProduct(int id)
         {
             var ts = repository.GetTransaction(id);

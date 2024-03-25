@@ -1,4 +1,5 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
 using Microsoft.AspNetCore.Authorization;
@@ -15,29 +16,35 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
-        [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetProducts() => repository.GetProducts();
 
         [HttpGet("Disabled")]
         [EnableQuery]
+        [Authorize(Roles = AppRole.Admin)]
         [Authorize]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetDisabledProducts() => repository.GetDisabledProducts();
 
         [HttpGet("Disabled/{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<ProductDTOResponse> GetDisanbledProductById(int id) => repository.GetDisabledProduct(id);
 
         [HttpGet("Search/{keyword}")]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<ProductDTOResponse>> Search(string keyword) => repository.SearchProducts(keyword);
         [HttpGet("Disable/Search/{keyword}")]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<ProductDTOResponse>> SearchDisable(string keyword) => repository.SearchDisableProducts(keyword);
 
         [HttpGet("{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<ProductDTOResponse> GetProductById(int id) => repository.GetProduct(id);
 
         [HttpPost]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult PostProduct(ProductDTOPOST postProduct)
         {
             if (repository.GetProducts().FirstOrDefault(f => f.ProductName.ToLower().Equals(postProduct.ProductName.ToLower())) != null)
@@ -50,6 +57,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpPut("Disable/{id}")]
         [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult DisableProduct(int id)
         {
             var product = repository.GetProduct(id);

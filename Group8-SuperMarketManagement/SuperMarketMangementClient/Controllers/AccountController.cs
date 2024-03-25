@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SuperMarketMangementClient.Controllers
 {
@@ -9,7 +11,7 @@ namespace SuperMarketMangementClient.Controllers
 		{
 			return View();
 		}
-
+		[Authorize(Roles = AppRole1.Admin)]
 		public IActionResult Register()
 		{
 			return View();

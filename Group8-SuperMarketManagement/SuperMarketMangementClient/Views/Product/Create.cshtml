@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Create Product";
     // string JWTToken = Context.Session.GetString("JWToken");
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <div class="container-fluid">
@@ -62,6 +64,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Category",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     beforeSend: function (xhr) {
 
                     },
@@ -79,6 +82,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Supplier",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     beforeSend: function (xhr) {
 
                     },
@@ -146,6 +150,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Product",
                     type: "POST",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     data: JSON.stringify({
                         "productName": $("#ProductName").val(),
                         "categoryID": $("#Category").val(),

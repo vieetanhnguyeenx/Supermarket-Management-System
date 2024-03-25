@@ -2,6 +2,8 @@
 @using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "Create Transaction";
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <div class="container-fluid">
@@ -130,6 +132,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Product",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     success: function (result, status, xhr) {
                         $.each(result, function (index, value) {
@@ -161,6 +164,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Customer",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     beforeSend: function (xhr) {
                     },
                     success: function (result, xhr) {
@@ -243,6 +247,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Product/" + productId,
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     success: function (result, status, xhr) {
                         const productToAdd = {
@@ -282,6 +287,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Product/Search/" + keyword,
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     success: function (result, status, xhr) {
                         $("#products").html("");
@@ -340,6 +346,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/SalesTransaction",
                     type: "POST",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     data: JSON.stringify({
                         transactionDate: new Date().toISOString(),
                         cashReceived: $("#CashReceived").val(),

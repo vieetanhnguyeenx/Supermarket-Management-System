@@ -1,5 +1,8 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -23,6 +26,8 @@ namespace SuperMarketMangementClient.Controllers
             JWTToken = session.GetString("JWToken") ?? "";
             UserId = session.GetString("UserId") ?? "";
         }
+
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Index()
         {
             return View();
@@ -31,7 +36,7 @@ namespace SuperMarketMangementClient.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<ActionResult> Edit(int? id)
         {
             var cust = new List<CustomerDTORespone>();
@@ -46,6 +51,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Edit([Bind("CustomerID,LastName,FirstName,Address,Phone,Point,Email")] CustomerDTOPUT customer)
         {
             if (ModelState.IsValid)
@@ -62,6 +68,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Create([Bind("LastName,FirstName,Address,Phone,Point,Email")] CustomerDTOCreate customer)
         {
             if (ModelState.IsValid)

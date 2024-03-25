@@ -1,5 +1,8 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -26,16 +29,18 @@ namespace SuperMarketMangementClient.Controllers
             UserId = session.GetString("UserId") ?? "";
 
         }
-
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Edit(string? id)
         {
             var cust = new EmployeeDTOResponse();
@@ -51,6 +56,7 @@ namespace SuperMarketMangementClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Edit([Bind("Id,LastName,FirstName,DoB,HireDate,Address,Phone,RoleName")] EmployeeDTOResponse employee)
         {
             if (ModelState.IsValid)
@@ -70,6 +76,7 @@ namespace SuperMarketMangementClient.Controllers
 
         }
 
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Delete(string? id)
         {
             var cust = new List<EmployeeDTOResponse>();
@@ -84,6 +91,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> DeleteConfirmed(string? Id)
         {
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Employees/" + Id);

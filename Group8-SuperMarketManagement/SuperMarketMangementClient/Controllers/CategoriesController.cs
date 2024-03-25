@@ -1,5 +1,8 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -24,10 +27,13 @@ namespace SuperMarketMangementClient.Controllers
             UserId = session.GetString("UserId") ?? "";
 
         }
+
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Create()
         {
 
@@ -36,6 +42,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Create([Bind("CategoryName,Description")] CategoryDTOCreateRequest customer)
         {
             if (ModelState.IsValid)
@@ -51,6 +58,7 @@ namespace SuperMarketMangementClient.Controllers
             return View(customer);
 
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Edit(int id)
         {
             var sup = new List<CategoryDTOResponse>();
@@ -66,6 +74,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Edit([Bind("CategoryID,CategoryName,Description")] CategoryDTOPUT customer)
         {
             if (ModelState.IsValid)
@@ -80,6 +89,7 @@ namespace SuperMarketMangementClient.Controllers
             return View(customer);
 
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var sup = new List<CategoryDTOResponse>();
@@ -95,6 +105,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> DeleteConfirmed(int CategoryID)
         {
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Category/" + CategoryID);

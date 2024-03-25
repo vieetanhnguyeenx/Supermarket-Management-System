@@ -134,6 +134,7 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
                         var employeeSignIn = JsonSerializer.Deserialize<EmployeeSignInResponse>(message, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                         HttpContext.Session.SetString("JWToken", employeeSignIn.Token);
                         HttpContext.Session.SetString("UserId", employeeSignIn.UserId);
+                        HttpContext.Session.SetString("UserRole", employeeSignIn.Role);
                     }
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
