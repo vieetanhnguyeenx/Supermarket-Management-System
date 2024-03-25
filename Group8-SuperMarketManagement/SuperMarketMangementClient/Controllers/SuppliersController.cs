@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataAccess.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BusinessObject;
 using System.Net.Http.Headers;
-using DataAccess.DTOs;
 using System.Text.Json;
 
 namespace SuperMarketMangementClient.Controllers
@@ -15,12 +8,21 @@ namespace SuperMarketMangementClient.Controllers
     public class SuppliersController : Controller
     {
         private readonly HttpClient client = null;
-        public SuppliersController()
+
+        private readonly string JWTToken = "";
+        private readonly string UserId = "";
+        private readonly IServiceProvider _services;
+        public SuppliersController(IServiceProvider services)
         {
+            _services = services;
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
 
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
+            ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
+            JWTToken = session.GetString("JWToken") ?? "";
+            UserId = session.GetString("UserId") ?? "";
         }
         public IActionResult Index()
         {
@@ -29,7 +31,7 @@ namespace SuperMarketMangementClient.Controllers
         public IActionResult Create()
         {
 
-            
+
             return View();
         }
         [HttpPost]
@@ -52,7 +54,7 @@ namespace SuperMarketMangementClient.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var sup = new SupplierDTORespone();
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5000/api/Supplier/"+id);
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5000/api/Supplier/" + id);
             string strData = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {

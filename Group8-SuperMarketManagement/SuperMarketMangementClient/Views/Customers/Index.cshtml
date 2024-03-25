@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <h1>Index</h1>
@@ -48,6 +50,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Customer",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     success: function (result, status, xhr) {
                         $.each(result, function (index, value) {
@@ -80,6 +83,7 @@
                     $.ajax({
                         url: "https://localhost:5000/api/Customer?$filter= (contains(tolower(firstName), tolower('" + keyword + "')) or contains(tolower(lastName),tolower('" + keyword + "')))",
                         type: "GET",
+                        headers: { "Authorization": 'Bearer @JWTToken' },
                         contentType: "application/json",
                         success: function (result, status, xhr) {
                             $("table tbody").html("");

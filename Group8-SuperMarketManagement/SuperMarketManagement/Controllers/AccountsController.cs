@@ -1,6 +1,9 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
 using DataAccess.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace SuperMarketManagementAPI.Controllers
 {
@@ -15,6 +18,7 @@ namespace SuperMarketManagementAPI.Controllers
 		}
 
 		[HttpPost("SignUp")]
+		[Authorize(Roles = AppRole.Admin)]
 		public async Task<IActionResult> SignUp(EmployeeSignUpModel signUpRequest)
 		{
 			var result = await repository.SigUpAsyn(signUpRequest);

@@ -8,19 +8,23 @@ namespace SuperMarketMangementClient.Controllers
     public class CustomersController : Controller
     {
         private readonly HttpClient client = null;
-        public CustomersController()
+        private readonly string JWTToken = "";
+        private readonly string UserId = "";
+        private readonly IServiceProvider _services;
+        public CustomersController(IServiceProvider services)
         {
+            _services = services;
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
 
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
+            ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
+            JWTToken = session.GetString("JWToken") ?? "";
+            UserId = session.GetString("UserId") ?? "";
         }
         public IActionResult Index()
         {
-            foreach (var cookie in Request.Cookies.Keys)
-            {
-                Response.Cookies.Delete(cookie);
-            }
             return View();
         }
         public IActionResult Create()

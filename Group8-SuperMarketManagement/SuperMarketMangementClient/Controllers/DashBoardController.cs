@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
+using DataAccess.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SuperMarketMangementClient.Models;
 
 namespace SuperMarketMangementClient.Controllers
@@ -13,22 +14,23 @@ namespace SuperMarketMangementClient.Controllers
         {
             _context = context;
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public IActionResult Index(string? startDate, string? endDate)
         {
             List<Chart> charts = new List<Chart>();
             DateTime defaultStartDate = DateTime.Now.AddDays(-7);
             DateTime defaultEndDate = DateTime.Now;
             DateTime StartDate;
-            DateTime EndDate; 
-            if (startDate == null  && endDate == null)
+            DateTime EndDate;
+            if (startDate == null && endDate == null)
             {
                 StartDate = defaultStartDate;
                 EndDate = defaultEndDate;
             }
             else
             {
-                StartDate = DateTime.Parse(startDate);  
-                EndDate = DateTime.Parse(endDate);  
+                StartDate = DateTime.Parse(startDate);
+                EndDate = DateTime.Parse(endDate);
             }
             for (DateTime date = StartDate; date <= EndDate; date = date.AddDays(1))
             {

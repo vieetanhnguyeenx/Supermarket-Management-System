@@ -1,8 +1,8 @@
-﻿using DataAccess.Repository.Iplm;
+﻿using DataAccess.DTOs;
 using DataAccess.Repository;
+using DataAccess.Repository.Iplm;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using BusinessObject;
-using DataAccess.DTOs;
 using Microsoft.AspNetCore.OData.Query;
 
 namespace SuperMarketManagementAPI.Controllers
@@ -12,15 +12,19 @@ namespace SuperMarketManagementAPI.Controllers
     public class ProductController : Controller
     {
         private IProductRepository repository = new ProductRepository();
-        
+
         [HttpGet]
         [EnableQuery]
+        [Authorize]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetProducts() => repository.GetProducts();
 
         [HttpGet("Disabled")]
         [EnableQuery]
+        [Authorize]
         public ActionResult<IEnumerable<ProductDTOResponse>> GetDisabledProducts() => repository.GetDisabledProducts();
+
         [HttpGet("Disabled/{id}")]
+        [Authorize]
         public ActionResult<ProductDTOResponse> GetDisanbledProductById(int id) => repository.GetDisabledProduct(id);
 
         [HttpGet("Search/{keyword}")]
@@ -29,9 +33,11 @@ namespace SuperMarketManagementAPI.Controllers
         public ActionResult<IEnumerable<ProductDTOResponse>> SearchDisable(string keyword) => repository.SearchDisableProducts(keyword);
 
         [HttpGet("{id}")]
+        [Authorize]
         public ActionResult<ProductDTOResponse> GetProductById(int id) => repository.GetProduct(id);
 
         [HttpPost]
+        [Authorize]
         public IActionResult PostProduct(ProductDTOPOST postProduct)
         {
             if (repository.GetProducts().FirstOrDefault(f => f.ProductName.ToLower().Equals(postProduct.ProductName.ToLower())) != null)
@@ -43,6 +49,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpPut("Disable/{id}")]
+        [Authorize]
         public IActionResult DisableProduct(int id)
         {
             var product = repository.GetProduct(id);
@@ -55,6 +62,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpPut("Undisable/{id}")]
+        [Authorize]
         public IActionResult UndisableProduct(int id)
         {
             var product = repository.GetDisabledProduct(id);
@@ -67,6 +75,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public IActionResult PutProduct(int id, ProductDTOPUT postProduct)
         {
             var productTmp = repository.GetProduct(id);
@@ -85,6 +94,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpPut("{id}/{qty}")]
+        [Authorize]
         public IActionResult PutProduct(int id, int qty)
         {
             var productTmp = repository.GetProduct(id);

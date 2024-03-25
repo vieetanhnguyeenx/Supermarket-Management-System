@@ -1,4 +1,5 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
-        [Authorize]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<IEnumerable<EmployeeDTOResponse>> GetEmployees() => repository.GetEmployees();
 
         [HttpPut("{id}")]
@@ -39,6 +40,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpGet("{id}/{roleName}")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> ChangeRole(string id, string roleName)
         {
             var e = await repository.GetEmployeeById(id);
@@ -56,6 +58,7 @@ namespace SuperMarketManagementAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> DeleteCategory(string id)
         {
             var e = await repository.GetEmployeeById(id);
@@ -72,6 +75,7 @@ namespace SuperMarketManagementAPI.Controllers
             }
         }
         [HttpGet("{id}")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> GetById(string id)
         {
             var e = await repository.GetEmployeeById(id);

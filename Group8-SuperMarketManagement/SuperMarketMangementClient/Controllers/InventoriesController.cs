@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataAccess.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BusinessObject;
-using DataAccess.DTOs;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -14,21 +7,28 @@ namespace SuperMarketMangementClient.Controllers
 {
     public class InventoriesController : Controller
     {
-
-
         private readonly HttpClient client = null;
-        public InventoriesController()
+
+        private readonly string JWTToken = "";
+        private readonly string UserId = "";
+        private readonly IServiceProvider _services;
+        public InventoriesController(IServiceProvider services)
         {
+            _services = services;
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
 
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
+            ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
+            JWTToken = session.GetString("JWToken") ?? "";
+            UserId = session.GetString("UserId") ?? "";
         }
 
         // GET: Inventories
         public IActionResult Index()
         {
-           
+
             return View();
         }
         public async Task<IActionResult> Create()
@@ -55,7 +55,7 @@ namespace SuperMarketMangementClient.Controllers
         {
             if (ModelState.IsValid)
             {
-              
+
                 HttpResponseMessage response = await client.PostAsJsonAsync("https://localhost:5000/api/Inventory", customer);
                 if (response.IsSuccessStatusCode)
                 {

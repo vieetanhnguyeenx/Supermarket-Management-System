@@ -1,8 +1,8 @@
-﻿using BusinessObject;
+﻿using DataAccess.Common;
 using DataAccess.DTOs;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -15,39 +15,49 @@ namespace SuperMarketManagementAPI.Controllers
         private readonly IInventoryRepository repository = new InventoryRepository();
         [HttpGet]
         [EnableQuery]
-        public ActionResult<IEnumerable<InventoryDTORespone>> GetInventories()=>repository.GetInventories();
+        [Authorize(Roles = AppRole.Admin)]
+        public ActionResult<IEnumerable<InventoryDTORespone>> GetInventories() => repository.GetInventories();
+
         [HttpGet("{id}")]
+        [Authorize(Roles = AppRole.Admin)]
         public ActionResult<InventoryDTORespone> GetInventoryById(int id) => repository.GetInventoryById(id);
+
+
         [HttpPost]
+        [Authorize(Roles = AppRole.Inventory)]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult PostInventory(InventoryDTOCreate inventory)
         {
             try
             {
                 repository.SaveInventory(inventory);
                 return NoContent();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);  
+                return BadRequest(ex.Message);
             }
         }
         [HttpDelete("{id}")]
-        public  IActionResult Delete(int id)
+        [Authorize(Roles = AppRole.Admin)]
+        public IActionResult Delete(int id)
         {
-            
-                var inv = repository.GetInventoryById(id);
-                if(inv == null)
-                {
-                    return NotFound();
-                }
-                try
-                {
-                    repository.DeleteInventory(id);
-                    return NoContent();
-                }catch(Exception ex)
-                {
-                    return BadRequest(ex.Message);  
-                }
-            
+
+            var inv = repository.GetInventoryById(id);
+            if (inv == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                repository.DeleteInventory(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
