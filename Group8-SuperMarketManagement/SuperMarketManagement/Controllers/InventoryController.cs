@@ -15,17 +15,16 @@ namespace SuperMarketManagementAPI.Controllers
         private readonly IInventoryRepository repository = new InventoryRepository();
         [HttpGet]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public ActionResult<IEnumerable<InventoryDTORespone>> GetInventories() => repository.GetInventories();
 
         [HttpGet("{id}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public ActionResult<InventoryDTORespone> GetInventoryById(int id) => repository.GetInventoryById(id);
 
 
         [HttpPost]
-        [Authorize(Roles = AppRole.Inventory)]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public IActionResult PostInventory(InventoryDTOCreate inventory)
         {
             try
@@ -39,7 +38,7 @@ namespace SuperMarketManagementAPI.Controllers
             }
         }
         [HttpDelete("{id}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public IActionResult Delete(int id)
         {
 

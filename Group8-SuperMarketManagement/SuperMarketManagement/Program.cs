@@ -1,4 +1,5 @@
 using BusinessObject;
+using DataAccess.Common;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -120,6 +121,23 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] { AppRole.Admin, AppRole.Inventory };
+
+    foreach (var role in roles)
+    {
+        var roleExist = await roleManager.RoleExistsAsync(role);
+        if (!roleExist)
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}
+
 /*
 using (var scope = app.Services.CreateScope())
 {

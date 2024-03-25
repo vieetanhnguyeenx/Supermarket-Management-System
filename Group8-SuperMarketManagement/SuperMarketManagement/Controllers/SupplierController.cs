@@ -15,14 +15,13 @@ namespace SuperMarketManagementAPI.Controllers
         private readonly ISupplierRepository repository = new SupplierRepository();
         [HttpGet()]
         [EnableQuery]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public ActionResult<IEnumerable<SupplierDTORespone>> GetSuppliers() => repository.GetSuppliers();
         [HttpGet("{id}")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public ActionResult<SupplierDTORespone> GetSupplierById(int id) => repository.GetSupplierById(id);
         [HttpPost()]
-        [Authorize(Roles = AppRole.Admin)]
-        [Authorize(Roles = AppRole.Inventory)]
+        [Authorize(Roles = AppRole.Admin + "," + AppRole.Inventory)]
         public IActionResult PostSupplier(SupplierDTOCreate supplier)
         {
             try

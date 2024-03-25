@@ -14,6 +14,7 @@ namespace SuperMarketMangementClient.Controllers
 
         private readonly string JWTToken = "";
         private readonly string UserId = "";
+        private readonly string UserRole = "";
         private readonly IServiceProvider _services;
         public SuppliersController(IServiceProvider services)
         {
@@ -25,15 +26,16 @@ namespace SuperMarketMangementClient.Controllers
             ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
             JWTToken = session.GetString("JWToken") ?? "";
             UserId = session.GetString("UserId") ?? "";
+            UserRole = session.GetString("UserRole") ?? "";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
 
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public IActionResult Index()
         {
             return View();
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public IActionResult Create()
         {
 
@@ -43,7 +45,7 @@ namespace SuperMarketMangementClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Create([Bind("CompanyName,Address,Phone")] SupplierDTOCreate customer)
         {
             if (ModelState.IsValid)
@@ -59,7 +61,7 @@ namespace SuperMarketMangementClient.Controllers
             return View(customer);
 
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Edit(int id)
         {
             var sup = new SupplierDTORespone();
@@ -74,7 +76,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Edit([Bind("SupplierID,CompanyName,Address,Phone")] SupplierDTOPUT customer)
         {
             if (ModelState.IsValid)
@@ -89,7 +91,7 @@ namespace SuperMarketMangementClient.Controllers
             return View(customer);
 
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Delete(int id)
         {
             var sup = new SupplierDTORespone();
@@ -104,7 +106,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> DeleteConfirmed(int SupplierID)
         {
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Supplier/" + SupplierID);

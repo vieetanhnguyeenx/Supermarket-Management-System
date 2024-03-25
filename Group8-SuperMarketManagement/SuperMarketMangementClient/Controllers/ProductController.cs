@@ -11,7 +11,7 @@ namespace SuperMarketMangementClient.Controllers
         {
             return View();
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public IActionResult Create()
         {
             return View();

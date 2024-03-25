@@ -28,20 +28,20 @@ namespace SuperMarketMangementClient.Controllers
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
 
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         // GET: Inventories
         public IActionResult Index()
         {
 
             return View();
         }
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Create()
         {
             return View();
         }
 
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Delete(int id)
         {
             var lst = new List<InventoryDTORespone>();
@@ -57,7 +57,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate,EmployeeID")] InventoryDTOCreate customer)
         {
             if (ModelState.IsValid)
@@ -75,7 +75,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = AppRole1.Admin)]
+        [Authorize(Roles = AppRole1.Admin + "," + AppRole1.Inventory)]
         public async Task<IActionResult> DeleteConfirmed(int InventoryID)
         {
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Inventory/" + InventoryID);
