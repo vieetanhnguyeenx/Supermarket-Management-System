@@ -100,7 +100,7 @@ namespace DataAccess.Repository.Iplm
                 claims: authClaims,
                 signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(
                     authenKey,
-                    SecurityAlgorithms.HmacSha512Signature)
+                    SecurityAlgorithms.HmacSha512)
             );
 
             string stringToken = new JwtSecurityTokenHandler().WriteToken(token);

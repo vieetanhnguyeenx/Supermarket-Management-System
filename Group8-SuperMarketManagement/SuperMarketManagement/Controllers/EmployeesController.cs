@@ -1,5 +1,6 @@
 ﻿using DataAccess.DTOs;
 using DataAccess.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -17,6 +18,7 @@ namespace SuperMarketManagementAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
+        [Authorize]
         public ActionResult<IEnumerable<EmployeeDTOResponse>> GetEmployees() => repository.GetEmployees();
 
         [HttpPut("{id}")]

@@ -7,13 +7,21 @@ namespace SuperMarketMangementClient.Controllers
 {
     public class EmployeesController : Controller
     {
-
+        private readonly IServiceProvider _services;
         private readonly HttpClient client = null;
-        public EmployeesController()
+
+        private readonly string JWTToken = "";
+        private readonly string UserId = "";
+        public EmployeesController(IServiceProvider services)
         {
+            _services = services;
             client = new HttpClient();
+            ISession session = _services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JWTToken);
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
+            JWTToken = session.GetString("JWToken") ?? "";
+            UserId = session.GetString("UserId") ?? "";
 
         }
 

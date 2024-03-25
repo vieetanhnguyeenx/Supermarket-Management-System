@@ -2,9 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <h1>Index</h1>
+<h1>@JWTToken</h1>
 
 <p>
     <a href='Identity/Account/Register'>Create New</a>
@@ -50,6 +53,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/Employees",
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     success: function (result, status, xhr) {
                         $.each(result, function (index, value) {
@@ -85,6 +89,7 @@
                     $.ajax({
                         url: "https://localhost:5000/api/Employees?$filter= (contains(tolower(firstName), tolower('" + keyword + "')) or contains(tolower(lastName),tolower('" + keyword + "')))",
                         type: "GET",
+                        headers: { "Authorization": 'Bearer @JWTToken'},
                         contentType: "application/json",
                         success: function (result, status, xhr) {
                             $("table tbody").html("");

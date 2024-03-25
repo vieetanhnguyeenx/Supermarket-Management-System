@@ -41,11 +41,11 @@ namespace DataAccess.Services
                 options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = configuration["JWT:ValidAudience"],
-                    ValidIssuer = configuration["JWT:ValidIssuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecretKey"]))
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidAudience = configuration["https://localhost:5000"],
+                    ValidIssuer = configuration["https://localhost:5000"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["ThisIsSecretKey1234567890DoiDenQuaThisIsSecretKey1234567890DoiDenQuaThisIsSecretKey1234567890DoiDenQuaThisIsSecretKey1234567890DoiDenQuaThisIsSecretKey1234567890DoiDenQua"]))
 
                 };
             });
