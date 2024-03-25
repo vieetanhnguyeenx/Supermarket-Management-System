@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using SuperMarketMangementClient.Models;
+@{
+    ViewData["Title"] = "Index";
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
+    string USERROLE = Context.Session.GetString("UserRole") ?? "";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,14 +26,64 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    @if(USERROLE.ToLower() == DataAccess.Common.AppRole1.Admin.ToLower())
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Inventories" asp-action="Index">Inventories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DashBoard" asp-action="Index">DashBoard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
+                            </li>
+                        </ul>
+                    }
+                    else if (USERROLE.ToLower() == DataAccess.Common.AppRole1.Employee.ToLower())
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Create">Customers</a>
+                            </li>
+                        </ul>
+                    }
+                    else if (USERROLE.ToLower() == DataAccess.Common.AppRole1.Inventory.ToLower())
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Create">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Inventories" asp-action="Index">Inventories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Suppliers" asp-action="Create">Suppliers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Create">Product</a>
+                            </li>
+                        </ul>
+                    }
+
                     <partial name="_LoginPartial" />
                 </div>
             </div>

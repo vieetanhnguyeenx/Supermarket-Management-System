@@ -107,7 +107,8 @@ namespace DataAccess.Repository.Iplm
             return new EmployeeSignInResponse
             {
                 Token = stringToken,
-                UserId = user.Id
+                UserId = user.Id,
+                Role = userRoles[0].ToString()
             };
         }
 

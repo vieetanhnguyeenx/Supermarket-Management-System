@@ -1,5 +1,8 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.Common;
+using DataAccess.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -24,18 +27,20 @@ namespace SuperMarketMangementClient.Controllers
             JWTToken = session.GetString("JWToken") ?? "";
             UserId = session.GetString("UserId") ?? "";
         }
-
+        [Authorize(Roles = AppRole1.Admin)]
         // GET: Inventories
         public IActionResult Index()
         {
 
             return View();
         }
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Create()
         {
             return View();
         }
 
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var lst = new List<InventoryDTORespone>();
@@ -51,6 +56,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> Create([Bind("ProductID,Quantity,PurchasePrice,EntryDate,EmployeeID")] InventoryDTOCreate customer)
         {
             if (ModelState.IsValid)
@@ -68,6 +74,7 @@ namespace SuperMarketMangementClient.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = AppRole1.Admin)]
         public async Task<IActionResult> DeleteConfirmed(int InventoryID)
         {
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:5000/api/Inventory/" + InventoryID);

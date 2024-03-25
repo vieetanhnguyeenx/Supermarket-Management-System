@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Undisable Product";
     // string JWTToken = Context.Session.GetString("JWToken");
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <div class="container-fluid">
@@ -59,6 +61,7 @@
                 $.ajax({
                     url: `https://localhost:5000/api/Product/Disabled/${id}`,
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     dataType: "json",
                     success: function (result) {
                         $("#ProductName").val(result.productName);
@@ -80,6 +83,7 @@
                 $.ajax({
                     url: `https://localhost:5000/api/Product/Undisable/${id}`,
                     type: "PUT",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     beforeSend: function (xhr) {
                     },

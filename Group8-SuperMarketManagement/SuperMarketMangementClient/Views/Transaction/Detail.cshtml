@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Order";
+    string JWTToken = Context.Session.GetString("JWToken") ?? "";
+    string USERID = Context.Session.GetString("UserId") ?? "";
 }
 
 <div class="container-fluid">
@@ -117,6 +119,7 @@
                 $.ajax({
                     url: `https://localhost:5000/api/SalesTransaction/${id}`,
                     type: "GET",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     dataType: "json",
                     beforeSend: function (xhr) {
                     },
@@ -158,6 +161,7 @@
                 $.ajax({
                     url: "https://localhost:5000/api/SalesTransaction/Disable/" + id,
                     type: "PUT",
+                    headers: { "Authorization": 'Bearer @JWTToken' },
                     contentType: "application/json",
                     beforeSend: function (xhr) {
                     },
