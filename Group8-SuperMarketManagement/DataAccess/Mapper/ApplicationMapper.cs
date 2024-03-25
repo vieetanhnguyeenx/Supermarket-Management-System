@@ -11,7 +11,7 @@ namespace DataAccess.Mapper
             //Map Category
             CreateMap<Category, CategoryDTOResponse>();
             CreateMap<CategoryDTOCreateRequest, Category>();
-            CreateMap<CategoryDTOPUT,Category>();
+            CreateMap<CategoryDTOPUT, Category>();
 
             //Map Product
             CreateMap<Product, ProductDTOResponse>()
@@ -41,7 +41,11 @@ namespace DataAccess.Mapper
             //Map Customer
             CreateMap<Customer, CustomerDTORespone>();
             CreateMap<CustomerDTOPUT, Customer>();
-            CreateMap<CustomerDTOCreate, Customer>();   
+            CreateMap<CustomerDTOCreate, Customer>();
+
+            //Map Employee
+            CreateMap<Employee, EmployeeDTOResponse>();
+            CreateMap<EmployeePutDTORequest, Employee>();
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using BusinessObject;
+﻿using AutoMapper;
+using BusinessObject;
 using DataAccess.Common;
+using DataAccess.DAO;
 using DataAccess.DTOs;
+using DataAccess.Mapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -16,6 +19,7 @@ namespace DataAccess.Repository.Iplm
         private readonly SignInManager<Employee> signInManager;
         private readonly IConfiguration configuration;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IMapper mapper;
 
         public EmployeeRepository(
             UserManager<Employee> userManager,
@@ -27,7 +31,32 @@ namespace DataAccess.Repository.Iplm
             this.signInManager = signInManager;
             this.configuration = configuration;
             this.roleManager = roleManager;
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new ApplicationMapper());
+            });
+            this.mapper = config.CreateMapper();
         }
+
+        public void DeleteEmployee(string id)
+        {
+            EmployeeDAO.DeleteEmployee(id);
+        }
+
+        public async Task<EmployeeDTOResponse> GetEmployeeById(string id)
+        {
+            var e = mapper.Map<Employee, EmployeeDTOResponse>(EmployeeDAO.GetEmployeeById(id));
+            var user = await userManager.FindByIdAsync(e.Id);
+            var userRoles = await userManager.GetRolesAsync(user);
+            e.RoleName = userRoles[0];
+            return e;
+        }
+
+        public List<EmployeeDTOResponse> GetEmployees()
+        {
+            return mapper.Map<List<Employee>, List<EmployeeDTOResponse>>(EmployeeDAO.GetEmployees());
+        }
+
         public async Task<EmployeeSignInResponse> SignInAsyn(EmployeeSignInModel userModel)
         {
             var user = await userManager.FindByEmailAsync(userModel.Email);
@@ -110,6 +139,26 @@ namespace DataAccess.Repository.Iplm
                 await userManager.AddToRoleAsync(userSignUp, AppRole.Employee);
             }
             return result;
+        }
+
+
+
+        public void UpdateEmployee(string id, EmployeePutDTORequest employee)
+        {
+            var e = mapper.Map<EmployeePutDTORequest, Employee>(employee);
+            e.Id = id;
+            EmployeeDAO.UpdateEmployee(e);
+        }
+
+        public async Task UpdateEmployeeRole(string id, string role)
+        {
+            var user = await userManager.FindByIdAsync(id);
+            List<string> roles = new List<string>();
+            roles.Add(AppRole.Employee);
+            roles.Add(AppRole.Inventory);
+            await userManager.RemoveFromRolesAsync(user, roles);
+            await userManager.AddToRoleAsync(user, role);
+
         }
     }
 }

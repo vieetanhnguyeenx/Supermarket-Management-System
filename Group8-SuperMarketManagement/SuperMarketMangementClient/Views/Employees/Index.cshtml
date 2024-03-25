@@ -1,0 +1,129 @@
+﻿@model IEnumerable<BusinessObject.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a href='Identity/Account/Register'>Create New</a>
+</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <form id="form-search" class="my-4">
+                <h4>Search</h4>
+                <div class="form-group mb-2">
+                    <input name="keyword" placeholder="Employee Name" class="form-control" />
+                </div>
+                <div class="form-group mb-2">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover table-bordered m-2">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>DoB</th>
+                <th>HireDate</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Discontinue</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ShowAllProducts();
+
+            function ShowAllProducts() {
+                $("table tbody").html("");
+                $.ajax({
+                    url: "https://localhost:5000/api/Employees",
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (result, status, xhr) {
+                        $.each(result, function (index, value) {
+                            $("tbody").append($("<tr>"));
+                            const appendElement = $("tbody tr").last();
+                            appendElement.append($("<td>").html(value["id"]));
+                            appendElement.append($("<td>").html(value["firstName"] + " " + value["lastName"]));
+                            appendElement.append($("<td>").html(value["doB"]));
+                            appendElement.append($("<td>").html(value["hireDate"]));
+                            appendElement.append($("<td>").html(value["address"]));
+                            appendElement.append($("<td>").html(value["phone"]));
+                            appendElement.append($("<td>").html(value["discontinued"]));
+                            appendElement.append($("<td>").html(
+                                "<a class='btn btn-warning' href='Employees/Edit?id=" + value["id"] + "'>Edit</a>" +
+                                "<a class='btn btn-danger' href='Employees/Delete?id=" + value["id"] + "'>Delete</a>"
+
+                            ));
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr);
+                    }
+                })
+            }
+
+            $("#form-search").submit(function (e) {
+                e.preventDefault();
+                console.log("123");
+                const keyword = $("input[name='keyword']").val();
+                console.log(keyword);
+                if (keyword != null) {
+                    console.log("123");
+                    $.ajax({
+                        url: "https://localhost:5000/api/Employees?$filter= (contains(tolower(firstName), tolower('" + keyword + "')) or contains(tolower(lastName),tolower('" + keyword + "')))",
+                        type: "GET",
+                        contentType: "application/json",
+                        success: function (result, status, xhr) {
+                            $("table tbody").html("");
+                            $.each(result, function (index, value) {
+                                $("tbody").append($("<tr>"));
+                                const appendElement = $("tbody tr").last();
+                                appendElement.append($("<td>").html(value["id"]));
+                                appendElement.append($("<td>").html(value["firstName"] + " " + value["lastName"]));
+                                appendElement.append($("<td>").html(value["doB"]));
+                                appendElement.append($("<td>").html(value["hireDate"]));
+                                appendElement.append($("<td>").html(value["address"]));
+                                appendElement.append($("<td>").html(value["phone"]));
+                                appendElement.append($("<td>").html(value["discontinued"]));
+                                appendElement.append($("<td>").html(
+                                    "<a class='btn btn-warning' href='Employees/Edit?id=" + value["id"] + "'>Edit</a>" +
+                                    "<a class='btn btn-danger' href='Employees/Delete?id=" + value["id"] + "'>Delete</a>"
+
+                                ));
+                            })
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(xhr);
+                        }
+                    })
+                    console.log("https://localhost:5000/api/Customer?$filter=not (contains(tolower(firstName), '" + keyword + "') or contains(tolower(lastName), '" + keyword + "'))");
+                }
+
+
+            })
+
+            $("#clear-search").click(function () {
+                $("input[name='keyword']").val("");
+                ShowAllProducts();
+            })
+        })
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+}
+
+

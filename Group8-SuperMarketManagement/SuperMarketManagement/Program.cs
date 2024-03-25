@@ -26,6 +26,7 @@ IEdmModel GetEdmModel()
     builder1.EntitySet<Inventory>("Inventories");
     builder1.EntitySet<Category>("Categories");
     builder1.EntitySet<Supplier>("Suppliers");
+    builder1.EntitySet<Employee>("Employees");
     return builder1.GetEdmModel();
 }
 

@@ -1,0 +1,185 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SuperMarketMangementClient
+build_property.RootNamespace = SuperMarketMangementClient
+build_property.ProjectDir = D:\FPTUniversity\PRN231_Project\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\FPTUniversity\PRN231_Project\Supermarket-Management-System\Group8-SuperMarketManagement\SuperMarketMangementClient
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Inventories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Inventories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Inventories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Disabled.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEaXNhYmxlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Product/Undisable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxVbmRpc2FibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Suppliers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Suppliers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Suppliers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Suppliers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Transaction/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Transaction/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Transaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPTUniversity/PRN231_Project/Supermarket-Management-System/Group8-SuperMarketManagement/SuperMarketMangementClient/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6q8jcut538
