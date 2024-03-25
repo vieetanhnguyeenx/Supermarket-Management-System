@@ -15,6 +15,10 @@ namespace SuperMarketMangementClient.Controllers
 
         public IActionResult Index()
         {
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
             return View();
         }
 

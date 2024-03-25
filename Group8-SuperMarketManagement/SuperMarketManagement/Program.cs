@@ -120,5 +120,30 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+/*
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<Employee>>();
 
+    string email = "Admin@gmail.com";
+    string password = "12345Aa@";
+
+    if (await userManager.FindByEmailAsync(email) == null)
+    {
+        var user = new Employee
+        {
+            UserName = email,
+            Email = email,
+            FirstName = "Admin",
+            LastName = "Admin"
+        };
+        var result = await userManager.CreateAsync(user, password);
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(user, AppRole.Admin);
+        }
+    }
+}
+*/
 app.Run();
