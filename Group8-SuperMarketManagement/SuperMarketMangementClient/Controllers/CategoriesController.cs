@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataAccess.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BusinessObject;
-using DataAccess.DTOs;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -24,6 +17,10 @@ namespace SuperMarketMangementClient.Controllers
         }
         public IActionResult Index()
         {
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
             return View();
         }
         public IActionResult Create()
