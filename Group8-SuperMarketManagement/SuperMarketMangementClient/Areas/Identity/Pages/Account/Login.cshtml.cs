@@ -20,9 +20,10 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
         private readonly SignInManager<Employee> _signInManager;
         private readonly ILogger<Employee> _logger;
         private readonly HttpClient _httpClient;
+        private readonly MyDBContext context;
         private readonly string AuthenUrl;
 
-        public LoginModel(SignInManager<Employee> signInManager, ILogger<Employee> logger)
+        public LoginModel(SignInManager<Employee> signInManager, ILogger<Employee> logger, MyDBContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
@@ -31,6 +32,7 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
             var contenType = new MediaTypeWithQualityHeaderValue("application/json");
             _httpClient.DefaultRequestHeaders.Accept.Add(contenType);
             AuthenUrl = "https://localhost:5000/api/Accounts/SignIn";
+            this.context = context;
         }
 
         /// <summary>
@@ -116,6 +118,20 @@ namespace SuperMarketMangementClient.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                var u = context.Employees.FirstOrDefault(x => x.Email == Input.Email);
+                if (u == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return Page();
+                }
+
+                if (u.Discontinued)
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return Page();
+                }
+
+
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
