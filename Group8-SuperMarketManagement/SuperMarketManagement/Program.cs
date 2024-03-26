@@ -1,5 +1,4 @@
 using BusinessObject;
-using DataAccess.Common;
 using DataAccess.Repository;
 using DataAccess.Repository.Iplm;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -121,6 +120,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+/*
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -137,7 +137,7 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
-
+*/
 /*
 using (var scope = app.Services.CreateScope())
 {

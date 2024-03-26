@@ -38,7 +38,7 @@ namespace SuperMarketMangementClient.Controllers
                 .Where(i => i.EntryDate.Date == date.Date)
                 .Sum(i => i.PurchasePrice);
                 decimal totalPrice = _context.SalesTransactions
-                .Where(i => i.TransactionDate == date.Date)
+                .Where(i => i.TransactionDate.Date == date.Date)
                 .Sum(i => i.TotalPrice);
 
                 double outCome = Convert.ToDouble(totalPurchasePrice);
