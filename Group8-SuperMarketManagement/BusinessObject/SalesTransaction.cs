@@ -8,7 +8,7 @@ namespace BusinessObject
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TransactionID { get; set; }
         [Required]
-        public DateTime? TransactionDate { get; set; }
+        public DateTime TransactionDate { get; set; }
         [Required]
         [Range(0, double.MaxValue)]
         public decimal CashReceived { get; set; }
